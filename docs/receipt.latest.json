@@ -1,10 +1,10 @@
 {
   "claim": "SPY likely up tomorrow",
-  "because": ["demo receipt initial"],
-  "but": ["Scale drift Δ_scale = 0.028 (min↔hour)"],
-  "so": "Within 3% tolerance — recheck at close",
+  "because": ["Reflex loop coherence stayed within band", "30d minute context"],
+  "but": ["Scale drift \u0394_scale = 0.028 (min\u2194hour)"],
+  "so": "Within 3% tolerance \u2014 recheck at close",
   "telem": { "delta_scale": 0.028 },
   "threshold": 0.03,
-  "model": "demo/seed",
+  "model": "coherence/reflex-loop",
   "attrs": { "cadence": "day" }
 }
