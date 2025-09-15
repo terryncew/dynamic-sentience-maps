@@ -1,3 +1,7 @@
+![Schema check](https://github.com/terryncew/openline-core/actions/workflows/validate.yml/badge.svg)
+
+**Live hub:** https://terryncew.github.io/openline-hub/
+
 # Dynamic Sentience Maps
 
 **Open-core telemetry and visualization for living knowledge graphs**
