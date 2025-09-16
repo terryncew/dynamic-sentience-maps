@@ -1,10 +1,5 @@
 ![Schema check](https://github.com/terryncew/openline-core/actions/workflows/validate.yml/badge.svg)
-cff-version: 1.2.0
-title: Open Line Protocol (OLP)
-message: Cite this software if you use OLP.
-authors: [{ family-names: White, given-names: Terrynce }]
-version: 0.1.0
-url: https://github.com/terryncew/openline-core
+[![OpenLine-compatible](https://img.shields.io/badge/OpenLine-compatible-v0.1-1f6feb)](https://github.com/terryncew/openline-core)
 **Live hub:** https://terryncew.github.io/openline-hub/
 
 # Dynamic Sentience Maps
