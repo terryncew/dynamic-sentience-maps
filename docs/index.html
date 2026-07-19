@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#11100d">
+  <meta name="description" content="Dynamic Sentience Maps is a public instrument for seeing coherence, pressure, drift, memory, and boundaries in living knowledge structures.">
+  <meta property="og:title" content="Dynamic Sentience Maps">
+  <meta property="og:description" content="See where a system holds. See where it starts to break.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://terryncew.github.io/dynamic-sentience-maps/">
+  <meta property="og:site_name" content="Dynamic Sentience Maps">
+  <meta property="og:image" content="https://terryncew.github.io/dynamic-sentience-maps/og-drift.png">
+  <meta property="og:image:secure_url" content="https://terryncew.github.io/dynamic-sentience-maps/og-drift.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dynamic Sentience Maps showing a live contradiction between stale and current system memory.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dynamic Sentience Maps">
+  <meta name="twitter:description" content="A seismograph for systems that can disagree with themselves.">
+  <meta name="twitter:image" content="https://terryncew.github.io/dynamic-sentience-maps/og-drift.png">
+  <meta name="twitter:image:alt" content="Dynamic Sentience Maps showing a live contradiction between stale and current system memory.">
+  <title>Dynamic Sentience Maps — A Public Instrument</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./instrument.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#instrument">Skip to the instrument</a>
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Dynamic Sentience Maps home">
+      <span>DSM</span>
+      <small>PUBLIC INSTRUMENT No. 01</small>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#instrument">Instrument</a>
+      <a href="#measures">Measures</a>
+      <a href="#architecture">Architecture</a>
+      <a href="https://github.com/terryncew/dynamic-sentience-maps" target="_blank" rel="noreferrer">Source ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-index" aria-hidden="true">VOL. I&nbsp;&nbsp; / &nbsp;&nbsp;2026</div>
+      <h1 id="hero-title"><span>DYNAMIC</span><span>SENTIENCE</span><span>MAPS</span></h1>
+
+      <div class="hero-deck">
+        <p>See where a system holds.<br>See where it starts to break.</p>
+        <div class="hero-actions">
+          <a class="action-primary" href="#instrument">Open the instrument <span aria-hidden="true">↓</span></a>
+          <a class="action-quiet" href="#method">Read the method</a>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <svg id="hero-plate" viewBox="0 0 780 520" role="img" aria-labelledby="hero-plate-caption"></svg>
+        <figcaption id="hero-plate-caption">
+          <span>Plate 01</span>
+          <p>A living knowledge structure at the moment a stale memory crosses into active state. The stable spine holds. One region does not.</p>
+        </figcaption>
+      </figure>
+
+      <aside class="hero-margin-note">
+        <span>OPEN-CORE</span>
+        <p>Graph structure and observable estimators remain public. A private kernel may answer through the bridge without exposing its internals.</p>
+      </aside>
+    </section>
+
+    <section id="instrument" class="instrument-section" aria-labelledby="instrument-title">
+      <div class="section-rule dark-rule">
+        <span>THE INSTRUMENT</span>
+        <span>SPECIMEN 04 · EMBEDDED DEMONSTRATION</span>
+      </div>
+
+      <div class="instrument-intro">
+        <h2 id="instrument-title">A system reveals itself at the edges.</h2>
+        <p>This specimen follows one supported plan as retries increase, context tightens, and a stale memory re-enters the graph. Move through the three observations. Select any node or named region to inspect what holds it there.</p>
+      </div>
+
+      <div class="state-observer" aria-label="Choose an observation state">
+        <div class="state-time">
+          <span>OBSERVED AT</span>
+          <strong id="state-time">08:47:09</strong>
+        </div>
+        <div class="state-controls" role="group" aria-label="Observation state">
+          <button type="button" data-state="baseline" aria-pressed="false"><span>01</span>Baseline</button>
+          <button type="button" data-state="pressure" aria-pressed="false"><span>02</span>Pressure</button>
+          <button class="is-active" type="button" data-state="drift" aria-pressed="true"><span>03</span>Drift</button>
+        </div>
+        <p id="state-observation">A stale memory has displaced the region claim and opened an unresolved contradiction at the review boundary.</p>
+      </div>
+
+      <div class="instrument-readings" aria-label="Current instrument readings">
+        <div class="reading reading-kappa">
+          <span>κ</span>
+          <strong id="reading-kappa">0.72</strong>
+          <small>STRESS</small>
+          <i id="line-kappa" style="--reading: 72%" aria-hidden="true"></i>
+        </div>
+        <div class="reading reading-epsilon">
+          <span>ε</span>
+          <strong id="reading-epsilon">0.34</strong>
+          <small>ENTROPY LEAK</small>
+          <i id="line-epsilon" style="--reading: 34%" aria-hidden="true"></i>
+        </div>
+        <div class="reading reading-capacity">
+          <span>I<sub>c</sub></span>
+          <strong id="reading-capacity">0.76</strong>
+          <small>CAPACITY</small>
+          <i id="line-capacity" style="--reading: 76%" aria-hidden="true"></i>
+        </div>
+        <div class="reading reading-phi">
+          <span>Φ*</span>
+          <strong id="reading-phi">0.64</strong>
+          <small>COHERENCE</small>
+          <i id="line-phi" style="--reading: 64%" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="instrument-workbench">
+        <figure class="map-figure">
+          <svg id="coherence-map" viewBox="0 0 1200 740" role="group" aria-label="Interactive coherence map. Use Tab to move through regions and nodes, then Enter to inspect one."></svg>
+          <figcaption>
+            <div class="map-legend" aria-label="Map legend">
+              <span><i class="legend-solid"></i>Support</span>
+              <span><i class="legend-tension"></i>Pressure</span>
+              <span><i class="legend-break"></i>Contradiction</span>
+              <span><i class="legend-square"></i>Boundary</span>
+            </div>
+            <p>Shape, line style, and labels carry meaning alongside color. Values are disclosed demonstration proxies, not universal scientific thresholds.</p>
+          </figcaption>
+        </figure>
+
+        <aside class="selection-panel" aria-labelledby="selection-title">
+          <div class="selection-heading">
+            <span id="selection-kind">PLAN</span>
+            <h3 id="selection-title">Migration plan</h3>
+            <p id="selection-description">The active plan linking the supported region, constraints, and expected outcome.</p>
+          </div>
+
+          <div class="detail-tabs" role="tablist" aria-label="Selection detail">
+            <button class="is-active" type="button" role="tab" data-detail-tab="overview" aria-selected="true">Overview</button>
+            <button type="button" role="tab" data-detail-tab="relations" aria-selected="false">Relations</button>
+            <button type="button" role="tab" data-detail-tab="evidence" aria-selected="false">Evidence</button>
+          </div>
+          <div id="detail-panel" class="detail-panel" role="tabpanel"></div>
+
+          <div class="latest-event">
+            <span>LATEST CHANGE</span>
+            <p id="state-event">Stale region memory re-entered active state without current evidence.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="measures" class="measures-section" aria-labelledby="measures-title">
+      <div class="section-rule">
+        <span>WHAT THE SYSTEM MEASURES</span>
+        <span>OBSERVABLE PROXIES · DISCLOSED LIMITS</span>
+      </div>
+
+      <div class="measures-heading">
+        <h2 id="measures-title">κ&nbsp;&nbsp; ε&nbsp;&nbsp; I<sub>c</sub>&nbsp;&nbsp; Φ*</h2>
+        <p>Four readings. None is a verdict by itself. Together they describe how a structure is carrying meaning through change.</p>
+      </div>
+
+      <ol class="measure-list">
+        <li>
+          <span class="measure-number">01</span>
+          <strong class="measure-symbol">κ</strong>
+          <div><h3>Stress</h3><p>Pressure from load, retries, bottlenecks, and structures carrying too much work.</p></div>
+          <blockquote>How tightly is the system being forced to operate?</blockquote>
+        </li>
+        <li>
+          <span class="measure-number">02</span>
+          <strong class="measure-symbol">ε</strong>
+          <div><h3>Entropy leak</h3><p>Observed drift, unresolved contradiction, and information losing its supporting path.</p></div>
+          <blockquote>How much meaning is escaping its original structure?</blockquote>
+        </li>
+        <li>
+          <span class="measure-number">03</span>
+          <strong class="measure-symbol">I<sub>c</sub></strong>
+          <div><h3>Information capacity</h3><p>A local estimate of what the current graph can carry without structural collapse.</p></div>
+          <blockquote>How much can this structure hold right now?</blockquote>
+        </li>
+        <li>
+          <span class="measure-number">04</span>
+          <strong class="measure-symbol">Φ*</strong>
+          <div><h3>Coherence</h3><p>Whether claims, evidence, constraints, plans, and outcomes still form a usable whole.</p></div>
+          <blockquote>Does the system still make sense as one object?</blockquote>
+        </li>
+      </ol>
+    </section>
+
+    <section class="example-section" aria-labelledby="example-title">
+      <div class="example-clock">
+        <span>LIVE EXAMPLE / OBSERVATION 03</span>
+        <strong>08:47:09</strong>
+      </div>
+      <div class="example-story">
+        <p class="kicker">THE CONTRADICTION ARRIVES QUIETLY</p>
+        <h2 id="example-title">Nothing crashes.<br>The map simply stops agreeing with itself.</h2>
+        <p>A stale memory says <em>eu-west-1</em>. The current source chain says <em>us-west-2</em>. Held-out tests still pass, so a conventional health panel stays green. The map does something more useful: it preserves both facts, marks the contradiction, and stops the disputed region from crossing the receiver boundary.</p>
+      </div>
+      <ol class="example-sequence">
+        <li><span>08:42</span><strong>The spine holds</strong><p>Current evidence supports the plan.</p></li>
+        <li><span>08:44</span><strong>Pressure gathers</strong><p>Retries add load without adding evidence.</p></li>
+        <li><span>08:47</span><strong>Drift becomes visible</strong><p>A stale claim reaches the boundary and is held for review.</p></li>
+      </ol>
+    </section>
+
+    <section id="method" class="boundary-section" aria-labelledby="boundary-title">
+      <div class="section-rule">
+        <span>WHY BOUNDARIES MATTER</span>
+        <span>METHOD NOTE 02</span>
+      </div>
+      <div class="boundary-statement">
+        <h2 id="boundary-title">A system is not coherent because its center agrees with itself.</h2>
+        <p>Coherence becomes meaningful at the boundary: where a claim meets evidence, where memory becomes action, where one agent hands state to another. Dynamic Sentience Maps makes those crossings visible before the system turns a private mistake into a public decision.</p>
+      </div>
+      <figure class="boundary-figure">
+        <svg viewBox="0 0 1000 360" role="img" aria-labelledby="boundary-caption">
+          <title>A boundary diagram from memory through evidence and policy to action.</title>
+          <defs>
+            <pattern id="boundary-dots" width="9" height="9" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="0.7"></circle>
+            </pattern>
+          </defs>
+          <path class="boundary-flow" d="M 92 180 H 890"></path>
+          <path class="boundary-gate" d="M 630 52 V 308"></path>
+          <g class="boundary-stop" transform="translate(630 180)"><circle r="35"></circle><path d="M -13 -13 L 13 13 M 13 -13 L -13 13"></path></g>
+          <g transform="translate(115 180)"><circle r="44"></circle><text y="5">MEMORY</text></g>
+          <g transform="translate(330 180)"><rect x="-44" y="-44" width="88" height="88"></rect><text y="5">EVIDENCE</text></g>
+          <g transform="translate(540 180)"><path d="M 0 -50 L 50 35 L -50 35 Z"></path><text y="8">POLICY</text></g>
+          <g transform="translate(840 180)"><circle r="44"></circle><text y="5">ACTION</text></g>
+          <text class="boundary-label" x="650" y="78">RECEIVER BOUNDARY</text>
+          <text class="boundary-alert" x="650" y="292">UNRESOLVED STATE STOPS HERE</text>
+        </svg>
+        <figcaption id="boundary-caption">The gate does not delete disputed state. It prevents unsupported state from becoming action while the evidence remains unresolved.</figcaption>
+      </figure>
+    </section>
+
+    <section id="architecture" class="architecture-section" aria-labelledby="architecture-title">
+      <div class="section-rule">
+        <span>OPEN ARCHITECTURE</span>
+        <span>BRIDGE API · v0.1 CONTRACT</span>
+      </div>
+      <div class="architecture-heading">
+        <h2 id="architecture-title">Open enough to inspect.<br>Bounded enough to keep.</h2>
+        <p>The public layer stores graph structure, renders the instrument, and exposes observable estimators. A private kernel can return metrics and interventions through one declared bridge. The graph receives the result; the kernel keeps its internals.</p>
+      </div>
+
+      <div class="architecture-spread">
+        <div class="architecture-layer open-layer">
+          <span>01 / OPEN LAYER</span>
+          <h3>What the public can inspect</h3>
+          <ul>
+            <li>Graph nodes, links, and provenance</li>
+            <li>Telemetry event structure</li>
+            <li>Open metric estimators</li>
+            <li>Intervention display and export</li>
+          </ul>
+        </div>
+        <div class="architecture-layer bridge-layer">
+          <span>02 / DECLARED CROSSING</span>
+          <h3><code>POST /bridge/analyze</code></h3>
+          <pre><code>{
+  "graph_snapshot": { "nodes": [], "links": [] },
+  "telemetry_window": [],
+  "analysis_params": {}
+}</code></pre>
+          <p>Returns metrics, interventions, and a kernel version. No private method is implied by the public demo.</p>
+        </div>
+        <div class="architecture-layer private-layer">
+          <span>03 / PRIVATE KERNEL</span>
+          <h3>What does not have to leave</h3>
+          <ul>
+            <li>High-fidelity estimators</li>
+            <li>Internal optimization logic</li>
+            <li>Private graph contents</li>
+            <li>Receiver-owned policy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="api-contracts" aria-label="Preserved API contracts">
+        <span>ALSO EXPOSED</span>
+        <code>GET /graph</code>
+        <code>POST /telemetry/events</code>
+        <code>GET /metrics/current</code>
+        <code>GET /interventions/suggestions</code>
+      </div>
+    </section>
+
+    <section class="invitation-section" aria-labelledby="invitation-title">
+      <span class="invitation-index">PUBLIC INSTRUMENT No. 01</span>
+      <h2 id="invitation-title">Bring your graph.<br>Keep your kernel.</h2>
+      <p>The instrument is open. The boundaries are yours.</p>
+      <div class="invitation-actions">
+        <a class="action-primary inverse" href="https://github.com/terryncew/dynamic-sentience-maps" target="_blank" rel="noreferrer">Inspect the source <span aria-hidden="true">↗</span></a>
+        <a class="action-quiet inverse-link" href="#instrument">Return to the instrument</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>DYNAMIC SENTIENCE MAPS</strong><span>Open-core telemetry for living knowledge structures.</span></div>
+    <div class="footer-links">
+      <a href="./receipt.latest.json">Latest receipt</a>
+      <a href="https://github.com/terryncew" target="_blank" rel="noreferrer">Terrynce White ↗</a>
+    </div>
+    <p>MIT · 2026</p>
+  </footer>
+</body>
+</html>
