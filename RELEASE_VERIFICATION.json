@@ -1,0 +1,68 @@
+{
+  "schema": "dynamic-sentience-maps/release-verification/v2",
+  "candidate": "0.2.0-rc.2",
+  "generated_at": "2026-07-18T23:43:00.965Z",
+  "disposition": "clear",
+  "checks": [
+    {
+      "name": "JavaScript syntax: demo data",
+      "status": "pass",
+      "detail": "verified"
+    },
+    {
+      "name": "JavaScript syntax: instrument",
+      "status": "pass",
+      "detail": "verified"
+    },
+    {
+      "name": "Python syntax: all sources",
+      "status": "pass",
+      "detail": "verified"
+    },
+    {
+      "name": "Python integrity and canonical receipt",
+      "status": "pass",
+      "detail": "PASS Python AST/compile, transport tokens, canonical receipt, and DOM-sink checks"
+    },
+    {
+      "name": "FastAPI import and runtime smoke",
+      "status": "pass",
+      "detail": "PASS FastAPI import, route contract, SQLite round-trip, metrics, and bridge smoke"
+    },
+    {
+      "name": "Deterministic test suite",
+      "status": "pass",
+      "detail": "✔ the demonstration graph is bounded and internally connected (1.272987ms)\n✔ every observation supplies complete layouts, stress, and bounded readings (1.156394ms)\n✔ geometry helpers are deterministic and region stress stays bounded (0.588527ms)\n✔ the editorial surface exposes the required instrument and claim limits (11.881614ms)\n✔ the existing API contract remains declared (3.751898ms)\n✔ release automation executes Python rather than treating hashes as correctness (1.64201ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 182.907476"
+    },
+    {
+      "name": "No remote runtime dependencies",
+      "status": "pass",
+      "detail": "all CSS and JavaScript are local"
+    }
+  ],
+  "python_source_sha256": {
+    "server main.py": "4e90774ebdd92fe7524685a944d372561e8adf720cfbc3a5f525610d26ed8d17",
+    "olp_client.py": "4335a97cef35811b0f35ee3bd677949d7ca4129872b6e41407119f1d24a4b4a4",
+    "wire_openline_demo.py": "912e3dd7535d45e631340dcdbcafc3bb72b5e808783910f27cc73a17bf0cc973"
+  },
+  "canonical_receipt_sha256": "2eede841f0d4200cf7f783512470171ab7185764868a058151f01ef7156c5951",
+  "public_surface_sha256": {
+    "docs/index.html": "09aebc236951136ce841505f85e722cc09238142e1bff017b9b15e90f0c73383",
+    "docs/styles.css": "de767c6b600ffaa47c051c84fc4bcac2a65490f976ebfdb6bb312560758c833e",
+    "docs/demo-data.js": "20ea2b4c83934ea85865b89ef57a6cf29609940b31b9cef580d76540589173f5",
+    "docs/instrument.js": "4567bb66f023951d9cceb0c1e6ad99492cf28b6254367fef6d5db7557a85107a"
+  },
+  "verification_source_sha256": {
+    "scripts/release-check.mjs": "21c3029ea4d040d2622ce1ec9b05a4aca87361bc191bd77d502007a3f855faad",
+    "tests/instrument.test.mjs": "7ec6e87c0c378306a34cdcd46854a2ddc9c3624cb5af5122bbb95afc3f164e29",
+    "tests/python_integrity.py": "2ef4b962aea61f1dcc3d8c50cb12e55bb568d6aae970146140a6a5171d8e20cc",
+    "tests/server_runtime_smoke.py": "d1f487c680a4822e232c23d3075809fd5cf0a94f59e547fd65442efce7611c53",
+    ".github/workflows/test.yml": "a6508345809e28bf2eb4e24d22a801fc20b7f10261970a9936dc21e4e950eb2c",
+    "requirements.txt": "6e9bcc483256c1b44c700962ee6c352d99dadc836f55cf5198fd1c53bb5d86f6"
+  },
+  "claim_boundary": [
+    "The graph and readings are deterministic demonstration proxies.",
+    "This verification does not establish scientific validity or a private kernel implementation.",
+    "Evidence and receiver policy must be checked in addition to signatures or hashes."
+  ]
+}

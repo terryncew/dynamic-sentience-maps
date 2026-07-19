@@ -1,11 +1,14 @@
 # olp_client.py
-# Minimal OpenLine client (stdlib only). Posts to /frame if reachable,
-# and always writes docs/receipt.latest.json for your Pages site.
+# Minimal OpenLine client (stdlib only). Posts to /frame when requested and
+# resolves the canonical Pages receipt independently of the current directory.
 
 from __future__ import annotations
 import json, os, time, urllib.request
 from pathlib import Path
 from typing import Dict, Any
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+CANONICAL_RECEIPT = PROJECT_ROOT / "docs" / "receipt.latest.json"
 
 def _env_url() -> str:
     base = os.environ.get("OLP_BASE", "http://127.0.0.1:8088")
@@ -28,12 +31,12 @@ def post_frame(frame: Dict[str, Any]) -> Dict[str, Any]:
 def build_frame(*, claim: str, delta_scale: float = 0.0,
                 attrs: Dict[str, Any] | None = None) -> Dict[str, Any]:
     # Keep the Unicode double-headed arrow ↔ so caps/guards align
-    attrs = attrs or {"asset_class": "equity", "cadence_pair": "min↔hour"}
+    attrs = attrs or {"asset_class": "knowledge_graph", "observation": "release"}
     return {
-        "stream_id": "curve-emergence",
+        "stream_id": "dynamic-sentience-maps",
         "t_logical": int(time.time()),
         "gauge": "sym",
-        "units": "confidence:0..1,cost:tokens",
+        "units": "stress:0..1,entropy:0..1,capacity:0..1,coherence:0..1",
         "nodes": [{"id":"C1","type":"Claim","label":claim,"weight":0.62,"attrs":attrs}],
         "edges": [], "morphs": [],
         "telem": {"delta_scale": float(delta_scale)},
@@ -42,18 +45,25 @@ def build_frame(*, claim: str, delta_scale: float = 0.0,
 
 def build_receipt(*, claim: str, because: list[str], but: list[str], so: str,
                   delta_scale: float, threshold: float = 0.03,
-                  model: str = "curve-emergence/tuner",
+                  model: str = "dynamic-sentience-maps/public-instrument",
                   attrs: Dict[str, Any] | None = None) -> Dict[str, Any]:
     return {
         "claim": claim, "because": because, "but": but, "so": so,
         "telem": {"delta_scale": float(delta_scale)},
         "threshold": float(threshold),
         "model": model,
-        "attrs": attrs or {"cadence":"day"},
+        "attrs": attrs or {"cadence":"release"},
     }
 
-def write_receipt_file(receipt: Dict[str, Any], file: str = "docs/receipt.latest.json") -> str:
-    p = Path(file)
+def resolve_receipt_path(file: str | Path | None = None) -> Path:
+    """Resolve relative receipt paths from the project root, never the caller CWD."""
+    if file is None:
+        return CANONICAL_RECEIPT
+    candidate = Path(file)
+    return candidate if candidate.is_absolute() else PROJECT_ROOT / candidate
+
+def write_receipt_file(receipt: Dict[str, Any], file: str | Path | None = None) -> str:
+    p = resolve_receipt_path(file)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
+    p.write_text(f"{json.dumps(receipt, indent=2, ensure_ascii=False)}\n", encoding="utf-8")
     return str(p)

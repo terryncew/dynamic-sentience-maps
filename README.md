@@ -1,177 +1,83 @@
-[![OpenLine-compatible](https://img.shields.io/static/v1?label=OpenLine&message=compatible%20v0.1&color=1f6feb)](https://github.com/terryncew/openline-core)
-![Schema check](https://github.com/terryncew/openline-core/actions/workflows/validate.yml/badge.svg)
-**Live hub:** https://terryncew.github.io/openline-hub/
-
 # Dynamic Sentience Maps
 
-**Open-core telemetry and visualization for living knowledge graphs**
+An open-core telemetry and graph-processing instrument for visualizing coherence, stress, entropy leak, memory, and boundaries in living knowledge structures.
 
-🧠 **Studio**: Interactive mind-map interface with real-time coherence metrics  
-⚡ **Telemetry**: Live monitoring of κ (stress), ε (entropy leak), I_c (capacity), and Φ* coherence  
-🔌 **Bridge API**: Drop-in support for private kernels without exposing IP
+**Public instrument:** https://terryncew.github.io/dynamic-sentience-maps/
 
-## Demo
+The website is designed as an editorial observatory rather than a conventional dashboard. Its first view is a readable scientific plate; the second exposes state changes and structure; the third exposes relations and evidence.
 
-Open `apps/studio/index.html` in your browser to see the interactive visualization in action. The demo includes:
+## What is included
 
-- **Force-directed knowledge graph** with semantic clustering
-- **Real-time coherence dial** showing Φ* metrics
-- **Stress visualization** highlighting overloaded nodes
-- **Live telemetry charts** tracking system health
-- **Intervention suggestions** for maintaining optimal flow
+- An interactive, keyboard-accessible coherence map with three bounded observations: baseline, pressure, and drift.
+- Calm instrument readings for `κ`, `ε`, `I_c`, and `Φ*`.
+- Progressive node and region inspection: meaning, support, contradiction, stress, boundary status, recent change, intervention, and evidence.
+- A disclosed demonstration dataset with one stable spine, one pressure field, one drifting claim, and one unresolved contradiction.
+- A repaired FastAPI prototype with the original graph, telemetry, metric, intervention, import, and Bridge API routes.
 
-## Architecture
+The map uses shape, line style, text, and color together. Motion communicates state changes and respects `prefers-reduced-motion`.
 
-This is an **open-core** system designed to protect intellectual property while enabling ecosystem growth:
+## Run the public instrument
 
-### Open Components
-
-- 📊 **Studio interface**: Full-featured graph visualization and interaction
-- 🔄 **Import adapters**: Obsidian, Notion, PDF, Git, CSV processors
-- 📈 **Telemetry system**: Event capture, aggregation, and visualization
-- 🧮 **Demo estimators**: Open-source approximations for research/demos
-- 🔗 **Graph processing**: Storage, embeddings, layouts, clustering
-
-### Private Components (Bridge API)
-
-- 🧠 **Production kernel**: High-fidelity coherence calculations
-- ⚡ **Optimized estimators**: Proprietary stress/entropy algorithms
-- 🎯 **Advanced interventions**: Sophisticated graph optimization
-
-## Quick Start
-
-### Studio Demo
+No build step or package installation is required.
 
 ```bash
-# Just open in browser - no setup required
-open apps/studio/index.html
+python3 -m http.server 8000 --directory docs
 ```
 
-### Development Server
+Open `http://localhost:8000`. The site is also ready for GitHub Pages with `docs/` as the publishing source.
+
+## Run the API
+
+The backend has an explicit dependency manifest and uses an isolated SQLite file by default.
 
 ```bash
-# Install dependencies
-pip install fastapi uvicorn numpy sqlite3
-
-# Start server
-cd server
-python main.py
-
-# Visit http://localhost:8000/docs for API documentation
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+python "server main.py"
 ```
 
-### Import Your Data
+The API and generated OpenAPI documentation are available at `http://localhost:8000` and `http://localhost:8000/docs`.
 
-The system supports multiple data sources:
+## Verify the release
 
-- **Obsidian**: Import your vault’s markdown files and link structure
-- **PDF Documents**: Extract text and generate semantic connections
-- **CSV Data**: Process structured data into knowledge nodes
-- **Git Repositories**: Analyze code structure and documentation
-
-## Core Concepts
-
-### Telemetry Metrics
-
-- **κ (Kappa - Stress)**: Processing bottlenecks, queue depth, token rate pressure
-- **ε (Epsilon - Entropy Leak)**: Information drift, contradiction rate, retrieval mismatch
-- **I_c (Information Capacity)**: Baseline mutual information across stable connections
-- **Φ* (Phi-star - Coherence)**: Integrated measure of system-wide information flow
-
-### Intervention System
-
-The platform suggests non-destructive optimizations:
-
-- **Queue reordering** for stress hotspots
-- **Context refresh** when drift is detected
-- **Link strengthening** for weak semantic connections
-- **Node splitting** for overloaded concepts
-
-## Project Structure
-
-```
-dynamic-sentience-maps/
-├── apps/
-│   └── studio/              # React/D3 visualization interface
-├── server/                  # FastAPI backend services
-├── packages/
-│   ├── graph-core/          # Graph storage and processing
-│   ├── metrics-open/        # Open-source metric estimators
-│   ├── adapters/           # Data import/export adapters
-│   └── plugins/            # Optional extensions (RAG, MI probes)
-├── specs/
-│   ├── telemetry.md        # Event schema documentation
-│   └── bridge-api.md       # Private kernel interface spec
-└── docs/                   # Architecture and usage guides
-```
-
-## Roadmap
-
-### Phase 1: Foundation (Weeks 1-2)
-
-- ✅ Core visualization with D3/React
-- ✅ Basic telemetry capture and display
-- 🔄 Import adapters for common formats
-- 🔄 SQLite graph storage with embeddings
-
-### Phase 2: Intelligence (Weeks 3-6)
-
-- 📋 Stress/entropy simulation and analysis
-- 📋 Intervention suggestion engine
-- 📋 Neo4j/Memgraph integration
-- 📋 Mutual information probes
-
-### Phase 3: Production (Weeks 7-8)
-
-- 📋 Bridge API client implementation
-- 📋 Export capabilities (PNG/SVG/PDF reports)
-- 📋 Security hardening and ACL system
-- 📋 Performance optimization
-
-## Security & Privacy
-
-- **Local-first**: SQLite + local vector storage by default
-- **Redaction**: Automatic PII detection and filtering at ingest
-- **Aggregate telemetry**: No raw data export without explicit consent
-- **Boundary ACLs**: Fine-grained access control for sensitive nodes
-
-## Contributing
-
-We welcome contributions! Please see:
-
-- `CONTRIBUTING.md` for development guidelines
-- `CODE_OF_CONDUCT.md` for community standards
-- GitHub Issues for bug reports and feature requests
-
-### Development Setup
+Install the Python requirements above, then use Node.js 20 or newer. There are no npm dependencies.
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/dynamic-sentience-maps.git
-cd dynamic-sentience-maps
-
-# Install dependencies
-make setup
-
-# Start development environment
-make dev
+npm test
+npm run check
 ```
+
+`npm run check` parses and compiles every Python source, imports the FastAPI application, exercises SQLite graph and telemetry round-trips, checks the Bridge API, validates the JavaScript and DOM-safety boundary, enforces the single canonical receipt, and writes a bounded result to `RELEASE_VERIFICATION.json`.
+
+## Architecture boundary
+
+The open layer stores graph structure, telemetry, and observable estimators. A private kernel can return metrics and interventions through:
+
+```text
+POST /bridge/analyze
+```
+
+The prototype also declares:
+
+```text
+GET  /graph
+POST /graph/nodes
+POST /graph/links
+POST /telemetry/events
+GET  /telemetry/recent
+GET  /metrics/current
+GET  /interventions/suggestions
+```
+
+The repaired backend retains those route contracts. The release workflow runs `py_compile` and a runtime smoke test; byte equality is recorded as identity evidence, never treated as correctness.
+
+## Evidence boundary
+
+The included readings and graph are deterministic demonstration proxies. They make the interface and method inspectable; they do not establish universal thresholds, scientific validation, consciousness, sentience, or a diagnosis of any real system. No single reading is presented as a verdict.
+
+The canonical project receipt is `docs/receipt.latest.json`. Its path resolves from the project root even when the generator is launched from another working directory. Verify evidence and receiver policy in addition to any signature.
 
 ## License
 
-- **Studio & Packages**: Apache-2.0 (ecosystem-friendly, commercial use allowed)
-- **Server**: AGPL-3.0 (open-source, prevents proprietary SaaS clones)
-- **Private Bridge Kernel**: Separate commercial license
-
-## Links
-
-- 📖 [Documentation](./docs/)
-- 🐛 [Report Issues](https://github.com/your-username/dynamic-sentience-maps/issues)
-- 💬 [Discussions](https://github.com/your-username/dynamic-sentience-maps/discussions)
-- 🌐 [Live Demo](https://your-username.github.io/dynamic-sentience-maps/)
-
------
-
-**Dynamic Sentience Maps** - Making knowledge systems more transparent, coherent, and aligned with human understanding.
-
-*Built with ❤️ for researchers, knowledge workers, and AI safety enthusiasts.*
+MIT © Terrynce White
