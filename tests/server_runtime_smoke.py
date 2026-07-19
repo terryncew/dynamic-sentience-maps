@@ -34,7 +34,15 @@ with tempfile.TemporaryDirectory(prefix="dsm-server-smoke-") as temporary:
         raise AssertionError("could not load server module")
     server = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = server
-    spec.loader.exec_module(server)
+    # Running this file directly makes ``tests/`` sys.path[0]. Temporarily add
+    # the repository root so the server can import neighboring modules exactly
+    # as it does during normal startup.
+    root_path = str(ROOT)
+    sys.path.insert(0, root_path)
+    try:
+        spec.loader.exec_module(server)
+    finally:
+        sys.path.remove(root_path)
 
     declared = {
         (method, route.path)
