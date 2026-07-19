@@ -1,4 +1,5 @@
 import { LINKS, NODES, REGIONS, STATES } from "./demo-data.js";
+import { initVerifiedModelSwap } from "./verified-model-swap.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 const REDUCED_MOTION = typeof window !== "undefined" &&
@@ -568,4 +569,5 @@ function initInstrument() {
 if (typeof document !== "undefined") {
   renderHeroPlate();
   initInstrument();
+  initVerifiedModelSwap();
 }

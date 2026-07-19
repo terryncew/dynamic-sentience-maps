@@ -1,8 +1,8 @@
 {
   "schema": "dynamic-sentience-maps/release-verification/v2",
-  "candidate": "0.2.0-rc.2",
-  "generated_at": "2026-07-18T23:43:00.965Z",
-  "disposition": "clear",
+  "candidate": "0.2.0-rc.3",
+  "generated_at": "2026-07-19T05:28:00.047Z",
+  "disposition": "hold",
   "checks": [
     {
       "name": "JavaScript syntax: demo data",
@@ -15,6 +15,11 @@
       "detail": "verified"
     },
     {
+      "name": "JavaScript syntax: model-swap display",
+      "status": "pass",
+      "detail": "verified"
+    },
+    {
       "name": "Python syntax: all sources",
       "status": "pass",
       "detail": "verified"
@@ -22,17 +27,17 @@
     {
       "name": "Python integrity and canonical receipt",
       "status": "pass",
-      "detail": "PASS Python AST/compile, transport tokens, canonical receipt, and DOM-sink checks"
+      "detail": "PASS source transport, canonical receipt, display projection integrity, and DOM sinks"
     },
     {
       "name": "FastAPI import and runtime smoke",
-      "status": "pass",
-      "detail": "PASS FastAPI import, route contract, SQLite round-trip, metrics, and bridge smoke"
+      "status": "fail",
+      "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/f244fb2c8a90/verified-model-swap/dynamic-sentience-maps/tests/server_runtime_smoke.py\", line 37, in <module>\n    spec.loader.exec_module(server)\n  File \"<frozen importlib._bootstrap_external>\", line 999, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/workspace/scratch/f244fb2c8a90/verified-model-swap/dynamic-sentience-maps/server main.py\", line 19, in <module>\n    import uvicorn\nModuleNotFoundError: No module named 'uvicorn'"
     },
     {
       "name": "Deterministic test suite",
       "status": "pass",
-      "detail": "✔ the demonstration graph is bounded and internally connected (1.272987ms)\n✔ every observation supplies complete layouts, stress, and bounded readings (1.156394ms)\n✔ geometry helpers are deterministic and region stress stays bounded (0.588527ms)\n✔ the editorial surface exposes the required instrument and claim limits (11.881614ms)\n✔ the existing API contract remains declared (3.751898ms)\n✔ release automation executes Python rather than treating hashes as correctness (1.64201ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 182.907476"
+      "detail": "✔ the demonstration graph is bounded and internally connected (0.78224ms)\n✔ every observation supplies complete layouts, stress, and bounded readings (0.623891ms)\n✔ geometry helpers are deterministic and region stress stays bounded (0.382658ms)\n✔ the editorial surface exposes the required instrument and claim limits (5.549402ms)\n✔ DSM renders the independently produced model-swap projection without grading it (1.294363ms)\n✔ the model-swap surface has no verifier, scoring, or unsafe HTML sink (1.510649ms)\n✔ the existing API contract remains declared (0.699565ms)\n✔ release automation executes Python rather than treating hashes as correctness (0.721328ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 71.390173"
     },
     {
       "name": "No remote runtime dependencies",
@@ -41,27 +46,32 @@
     }
   ],
   "python_source_sha256": {
-    "server main.py": "4e90774ebdd92fe7524685a944d372561e8adf720cfbc3a5f525610d26ed8d17",
+    "server main.py": "c9a39cb209800bc24cf1f6088d51e6745bb0f42e846b0e16d946f07ca81a2293",
+    "dsm_security.py": "e49aa2eee99c3b474baa796f8c0c8fdac292cf852cad43c38c52d33c138dbcb8",
     "olp_client.py": "4335a97cef35811b0f35ee3bd677949d7ca4129872b6e41407119f1d24a4b4a4",
-    "wire_openline_demo.py": "912e3dd7535d45e631340dcdbcafc3bb72b5e808783910f27cc73a17bf0cc973"
+    "wire_openline_demo.py": "0e110164868ed8b8a4a6d0bb2a1078601d1cbc18feecca4ea40269640137f300"
   },
-  "canonical_receipt_sha256": "2eede841f0d4200cf7f783512470171ab7185764868a058151f01ef7156c5951",
+  "canonical_receipt_sha256": "a6dde686bfb24665542f70517d655d2fd177757228c9cb313a9b0d8f73ca8578",
+  "verified_model_swap_projection_sha256": "d4006ffe1c39c78e883c912c69caef2c0a5715823911e02492ebc2647a2140a0",
   "public_surface_sha256": {
-    "docs/index.html": "09aebc236951136ce841505f85e722cc09238142e1bff017b9b15e90f0c73383",
-    "docs/styles.css": "de767c6b600ffaa47c051c84fc4bcac2a65490f976ebfdb6bb312560758c833e",
+    "docs/index.html": "619ed5fe20df5506caac6eaf2fb848da3fe28339f10de1443659bb527b86698a",
+    "docs/styles.css": "1e3fbadec5f9e55474d120569373439e7664fd6a9b95a0061ff3c6cbcbc00d6e",
     "docs/demo-data.js": "20ea2b4c83934ea85865b89ef57a6cf29609940b31b9cef580d76540589173f5",
-    "docs/instrument.js": "4567bb66f023951d9cceb0c1e6ad99492cf28b6254367fef6d5db7557a85107a"
+    "docs/instrument.js": "d1466ec9536777ab3b3f95de4d8b02f69c68bb52d5d9edf70d068594b4fb70da",
+    "docs/verified-model-swap.js": "20da519055d0097723fa4133677d45917e1c12e026afb1a6d5007f8df72badb3"
   },
   "verification_source_sha256": {
-    "scripts/release-check.mjs": "21c3029ea4d040d2622ce1ec9b05a4aca87361bc191bd77d502007a3f855faad",
-    "tests/instrument.test.mjs": "7ec6e87c0c378306a34cdcd46854a2ddc9c3624cb5af5122bbb95afc3f164e29",
-    "tests/python_integrity.py": "2ef4b962aea61f1dcc3d8c50cb12e55bb568d6aae970146140a6a5171d8e20cc",
-    "tests/server_runtime_smoke.py": "d1f487c680a4822e232c23d3075809fd5cf0a94f59e547fd65442efce7611c53",
-    ".github/workflows/test.yml": "a6508345809e28bf2eb4e24d22a801fc20b7f10261970a9936dc21e4e950eb2c",
+    "scripts/release-check.mjs": "318e4d060dc0888c66ca81b1d8cb49a75a3f84abe6d3ceb2f5ab243c76fdcf4d",
+    "tests/instrument.test.mjs": "e4960632f184890ac98b7f1759d177b3a0fe2444502961ff26539491b4d9ab50",
+    "tests/python_integrity.py": "5f2da0c89e6a62302dfbe381463cbe301a9c32bac887a34178f5f54382b416f0",
+    "tests/server_runtime_smoke.py": "edc97f68e35fe2ebfdd167aed71b453482509750ec79fcd30247ba2c3506ea24",
+    ".github/workflows/test.yml": "4438f72a99276df077b818f33d939e03b0669da46d1ee60ddab9179a01b6889d",
     "requirements.txt": "6e9bcc483256c1b44c700962ee6c352d99dadc836f55cf5198fd1c53bb5d86f6"
   },
   "claim_boundary": [
     "The graph and readings are deterministic demonstration proxies.",
+    "DSM renders a producer-supplied model-swap projection and does not grade the lanes.",
+    "Fixture model identifiers do not attest execution by a commercial provider.",
     "This verification does not establish scientific validity or a private kernel implementation.",
     "Evidence and receiver policy must be checked in addition to signatures or hashes."
   ]

@@ -12,6 +12,7 @@ The website is designed as an editorial observatory rather than a conventional d
 - Calm instrument readings for `κ`, `ε`, `I_c`, and `Φ*`.
 - Progressive node and region inspection: meaning, support, contradiction, stress, boundary status, recent change, intervention, and evidence.
 - A disclosed demonstration dataset with one stable spine, one pressure field, one drifting claim, and one unresolved contradiction.
+- A display-only Verified Model Swap spread showing the full-history reference, an ordinary summary, and a verified causal capsule from Receipt Gate's independently graded fixture.
 - A repaired FastAPI prototype with the original graph, telemetry, metric, intervention, import, and Bridge API routes.
 
 The map uses shape, line style, text, and color together. Motion communicates state changes and respects `prefers-reduced-motion`.
@@ -39,6 +40,14 @@ python "server main.py"
 
 The API and generated OpenAPI documentation are available at `http://localhost:8000` and `http://localhost:8000/docs`.
 
+The server binds to `127.0.0.1` by default. Loopback peers may use state-changing routes without a token. To expose mutations beyond the local machine, set a strong `DSM_MUTATION_TOKEN`; remote callers must send it as `Authorization: Bearer ...`. `DSM_HOST` and comma-separated `DSM_ALLOWED_ORIGINS` are explicit deployment opt-ins. Wildcard credential origins are rejected, and the bundled server ignores forwarded client headers.
+
+## Verified Model Swap surface
+
+`docs/verified_model_swap.latest.json` is produced by OpenLine Receipt Gate's controlled three-lane fixture. It declares which commitments survived, which negative-history decisions an ordinary summary lost, what returned from the authenticated archive, and the receiver Gate disposition.
+
+DSM only parses and renders that bounded projection. It does not compare the lanes, verify the receipt signatures, run Half-Life, or decide whether the swap may continue. The source and target model names are caller-declared fixture identifiers; the artifact does not attest that either commercial provider executed the trial. Verify the proof card, evidence, trust keys, and receiver policy in Receipt Gate before relying on the result.
+
 ## Verify the release
 
 Install the Python requirements above, then use Node.js 20 or newer. There are no npm dependencies.
@@ -48,7 +57,7 @@ npm test
 npm run check
 ```
 
-`npm run check` parses and compiles every Python source, imports the FastAPI application, exercises SQLite graph and telemetry round-trips, checks the Bridge API, validates the JavaScript and DOM-safety boundary, enforces the single canonical receipt, and writes a bounded result to `RELEASE_VERIFICATION.json`.
+`npm run check` parses and compiles every Python source, imports the FastAPI application, exercises SQLite graph and telemetry round-trips, tests the local/remote mutation boundary, checks the Bridge API, validates the JavaScript and DOM-safety boundary, checks the producer-supplied proof-card hash inside the display projection, enforces the single canonical receipt, and writes a bounded result to `RELEASE_VERIFICATION.json`.
 
 ## Architecture boundary
 

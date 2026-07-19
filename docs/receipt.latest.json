@@ -1,16 +1,21 @@
 {
-  "claim": "Dynamic Sentience Maps v0.2.0rc2 passed bounded release verification",
+  "claim": "Dynamic Sentience Maps v0.2.0rc3 remains on hold pending bounded release verification",
   "because": [
-    "All Python sources pass py_compile and AST parsing",
-    "The FastAPI application imports and completes a graph/telemetry/bridge smoke test",
-    "The public instrument passes desktop and mobile interaction replay",
-    "One canonical receipt path is enforced independently of the caller working directory"
+    "JavaScript syntax: demo data",
+    "JavaScript syntax: instrument",
+    "JavaScript syntax: model-swap display",
+    "Python syntax: all sources",
+    "Python integrity and canonical receipt",
+    "Deterministic test suite",
+    "No remote runtime dependencies"
   ],
   "but": [
     "Public readings remain disclosed demonstration proxies",
-    "No private bridge kernel or universal scientific threshold is certified"
+    "No private bridge kernel or universal scientific threshold is certified",
+    "The model identifiers are fixture declarations; commercial provider execution is not attested",
+    "Pending or failed checks: FastAPI import and runtime smoke"
   ],
-  "so": "Clear for the rc2 public-instrument candidate within the declared claim boundary",
+  "so": "Hold until every declared release check passes in the current source snapshot",
   "telem": {
     "delta_scale": 0.0
   },
@@ -18,8 +23,8 @@
   "model": "dynamic-sentience-maps/public-instrument",
   "attrs": {
     "cadence": "release",
-    "candidate": "0.2.0-rc.2",
-    "disposition": "clear_with_boundary",
+    "candidate": "0.2.0-rc.3",
+    "disposition": "hold",
     "evidence": [
       "RELEASE_VERIFICATION.json",
       "tests/python_integrity.py",
@@ -27,7 +32,7 @@
       "tests/instrument.test.mjs"
     ]
   },
-  "generated_at": "2026-07-18T23:42:59.181662+00:00",
+  "generated_at": "2026-07-19T05:29:47.774962+00:00",
   "freshness": {
     "scope": "this release-candidate source snapshot",
     "expires_on_source_change": true

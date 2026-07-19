@@ -1,10 +1,31 @@
 from __future__ import annotations
 import argparse
+import json
 from datetime import datetime, timezone
+from pathlib import Path
 from olp_client import build_frame, post_frame, build_receipt, write_receipt_file
 
 def main(*, post: bool = False):
-    claim = "Dynamic Sentience Maps v0.2.0rc2 passed bounded release verification"
+    report_path = Path(__file__).resolve().with_name("RELEASE_VERIFICATION.json")
+    try:
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        report = {}
+    checks = report.get("checks", [])
+    if not isinstance(checks, list):
+        checks = []
+    clear = (
+        report.get("candidate") == "0.2.0-rc.3"
+        and report.get("disposition") == "clear"
+        and isinstance(checks, list)
+        and len(checks) == 8
+        and all(isinstance(item, dict) and item.get("status") == "pass" for item in checks)
+    )
+    claim = (
+        "Dynamic Sentience Maps v0.2.0rc3 passed bounded release verification"
+        if clear
+        else "Dynamic Sentience Maps v0.2.0rc3 remains on hold pending bounded release verification"
+    )
     delta = 0.0
 
     ok_post = False
@@ -16,25 +37,36 @@ def main(*, post: bool = False):
         except Exception as e:
             print("[post] failed:", e)
 
+    passed_checks = [
+        str(item.get("name"))
+        for item in checks
+        if item.get("status") == "pass"
+    ]
+    failed_checks = [
+        str(item.get("name"))
+        for item in checks
+        if item.get("status") != "pass"
+    ]
     receipt = build_receipt(
         claim=claim,
-        because=[
-            "All Python sources pass py_compile and AST parsing",
-            "The FastAPI application imports and completes a graph/telemetry/bridge smoke test",
-            "The public instrument passes desktop and mobile interaction replay",
-            "One canonical receipt path is enforced independently of the caller working directory",
-        ],
+        because=passed_checks or ["No current release report is available"],
         but=[
             "Public readings remain disclosed demonstration proxies",
             "No private bridge kernel or universal scientific threshold is certified",
+            "The model identifiers are fixture declarations; commercial provider execution is not attested",
+            *(["Pending or failed checks: " + ", ".join(failed_checks)] if failed_checks else []),
         ],
-        so="Clear for the rc2 public-instrument candidate within the declared claim boundary",
+        so=(
+            "Clear for the rc3 public-instrument candidate within the declared claim boundary"
+            if clear
+            else "Hold until every declared release check passes in the current source snapshot"
+        ),
         delta_scale=delta,
         model="dynamic-sentience-maps/public-instrument",
         attrs={
             "cadence": "release",
-            "candidate": "0.2.0-rc.2",
-            "disposition": "clear_with_boundary",
+            "candidate": "0.2.0-rc.3",
+            "disposition": "clear_with_boundary" if clear else "hold",
             "evidence": [
                 "RELEASE_VERIFICATION.json",
                 "tests/python_integrity.py",

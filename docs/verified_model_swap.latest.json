@@ -1,0 +1,657 @@
+{
+  "claim_boundary": "This projection is a bounded display artifact. Verify the proof card, Half-Life evidence, receiver policy, and signed decision outside DSM.",
+  "display_only": true,
+  "gate_decision": {
+    "action": {
+      "claim_hash": "8a75d42727540adb4b835948ca4dce320b0a4abbc829c187e00c490bbb09600d",
+      "id": "verified-model-swap-demo",
+      "risk_level": "high",
+      "type": "verified_model_swap"
+    },
+    "algorithm_id": "openline-proof-to-policy-gate-0.3",
+    "assessments": {
+      "coverage": {
+        "details": {
+          "claim": "declared chain from sequence 1 through terminal verified; action omission remains out of scope"
+        },
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "evidence": {
+        "details": {
+          "artifact_hashes": {
+            "model_swap_proof_card": "79f4f18f76aeed65e860b2c7ee38f41620dad52cdfb5f7780a9e0445a6f56bb4"
+          },
+          "bound_evidence_ids": [
+            "model_swap_proof_card"
+          ],
+          "raw_evidence_stored_in_decision": false,
+          "required_claim_ids": [
+            "verified-model-swap-demo"
+          ],
+          "required_evidence_ids": [
+            "model_swap_proof_card"
+          ],
+          "scope": "policy-declared evidence binding and predicates; no general truth inference"
+        },
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "freshness": {
+        "details": {
+          "replay_guard": {
+            "details": {
+              "challenge_issued_at": "2026-07-19T05:27:09.031760Z"
+            },
+            "reason_codes": [],
+            "status": "pass"
+          },
+          "source_age_seconds": 0
+        },
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "independence": {
+        "details": {
+          "required": false
+        },
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "integrity": {
+        "details": {},
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "outcome": {
+        "details": {
+          "evidence_hash": "79f4f18f76aeed65e860b2c7ee38f41620dad52cdfb5f7780a9e0445a6f56bb4",
+          "harmful": false,
+          "independence": "receiver",
+          "rollback_supported": true,
+          "status": "pass",
+          "witness_id": "receiver-independent-grader",
+          "witness_key": "2012cb90ca60e8e5d8daf66e2272d2233e0486d557e8c66141ed8920177d7eb7"
+        },
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "profile": {
+        "details": {},
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "provenance": {
+        "details": {
+          "controllers": [
+            "model-swap-orchestrator"
+          ],
+          "independence": [
+            "operator"
+          ]
+        },
+        "reason_codes": [],
+        "status": "pass"
+      },
+      "source_signal": {
+        "details": {
+          "required": false
+        },
+        "reason_codes": [],
+        "status": "pass"
+      }
+    },
+    "binding": {
+      "challenge_nonce": "d417631e81957c0a0699cec54b288d2f",
+      "expected_source_hash": "9c588da88773e85b794bb7b6192f61ec138863c24ed8af3f43049006b62ef3d1",
+      "parent_decision_hash": null,
+      "run_id": "verified-model-swap-demo",
+      "sequence": 1,
+      "session_id": "verified-model-swap-demo"
+    },
+    "canonicalization_id": "olp-canonical-json-int-v1",
+    "chain_accepted": true,
+    "created_at": "2026-07-19T05:27:09.034087Z",
+    "decision": "COMMIT",
+    "issuer": {
+      "id": "openline-public-model-swap-demo-gate"
+    },
+    "kind": "proof_to_policy_decision_receipt",
+    "payload_hash": "5a9736c3899f166b3e224db47331e3514e4f1dd33fd7ad27396290127da1f2a3",
+    "policy": {
+      "hash": "67f1efaff234f7a15401d8dda1ce9eaf087d213b39317f1e9eaf22fc0ac7df79",
+      "id": "verified-model-swap.receiver-policy",
+      "snapshot": {
+        "deny_risk_levels": [],
+        "evidence_assertions": [
+          {
+            "evidence_id": "model_swap_proof_card",
+            "op": "equals",
+            "path": "authority.candidate_self_grading_allowed",
+            "value": false
+          },
+          {
+            "evidence_id": "model_swap_proof_card",
+            "op": "equals",
+            "path": "half_life_verification.valid",
+            "value": true
+          },
+          {
+            "evidence_id": "model_swap_proof_card",
+            "op": "equals",
+            "path": "independent_grade.capsule_matches_oracle",
+            "value": true
+          },
+          {
+            "evidence_id": "model_swap_proof_card",
+            "op": "equals",
+            "path": "independent_grade.archive_matches_oracle",
+            "value": true
+          },
+          {
+            "evidence_id": "model_swap_proof_card",
+            "op": "equals",
+            "path": "independent_grade.passed",
+            "value": true
+          }
+        ],
+        "max_evidence_bytes": 10000000,
+        "max_source_age_seconds": 300,
+        "metadata": {
+          "irreversible_action_gate": true,
+          "profile": "verified_model_swap/v1"
+        },
+        "no_badge_action_types": [
+          "eval_score_claim"
+        ],
+        "policy_id": "verified-model-swap.receiver-policy",
+        "require_declared_coverage": true,
+        "require_evidence": true,
+        "require_independent_source": false,
+        "require_outcome_witness": true,
+        "require_replay_guard": true,
+        "require_source_bound_evidence": true,
+        "require_trusted_source": true,
+        "required_claim_ids": [
+          "verified-model-swap-demo"
+        ],
+        "required_evidence_ids": [
+          "model_swap_proof_card"
+        ],
+        "rollback_on_harm": true,
+        "version": "1"
+      },
+      "version": "1"
+    },
+    "privacy": {
+      "raw_evidence_stored": false,
+      "raw_source_disclosure_stored": false
+    },
+    "reason_codes": [],
+    "receipt_version": "0.3",
+    "request_id": "verified-model-swap-demo-receiver-decision",
+    "signature": {
+      "algorithm": "Ed25519",
+      "public_key": "f80cccdce4ae1c07ae208a2adf99a310ae4207e0306fa0236110b06827bbb8d0",
+      "value": "11c2d6d6ad4813551844e34379c6c34aa8ffe75621a9d3f4830478a0d7113b136ce9b14f6dc2ec46c471dbe148c37f0faa43dfff8f218d7e4ac58f809c21460e"
+    },
+    "source": {
+      "format": "agent_receipts",
+      "primary_hash": "9c588da88773e85b794bb7b6192f61ec138863c24ed8af3f43049006b62ef3d1",
+      "receipt_hashes": [
+        "9c588da88773e85b794bb7b6192f61ec138863c24ed8af3f43049006b62ef3d1"
+      ],
+      "source_key_ids": [
+        "did:example:verified-model-swap-orchestrator#key-1"
+      ]
+    },
+    "spec_uri": "https://github.com/terryncew/openline-receipt-gate",
+    "verdict": "VERIFIED"
+  },
+  "grading_authority": "receipt-gate-output; DSM must not recompute",
+  "integrity": {
+    "decision_receipt_payload_hash": "5a9736c3899f166b3e224db47331e3514e4f1dd33fd7ad27396290127da1f2a3",
+    "proof_card_file_sha256": "79f4f18f76aeed65e860b2c7ee38f41620dad52cdfb5f7780a9e0445a6f56bb4"
+  },
+  "proof_card": {
+    "authority": {
+      "candidate_self_grading_allowed": false,
+      "compactor_self_grading_allowed": false,
+      "dsm_grading_allowed": false,
+      "grader": "receiver-independent-reference-replay-v1"
+    },
+    "claim": "Change the model without losing receiver-relevant continuity.",
+    "claim_boundary": "This trial proves exact receiver-decision equivalence only for the disclosed Half-Life history, candidate lane outputs, policy pins, and deterministic projection. Model identifiers are caller declarations, not proof that a commercial provider executed the trial. It does not establish legal ownership, universal model portability, controller independence, or semantic truth beyond the verified evidence. Distinct signing keys prove key separation, not who ultimately controls their custody.",
+    "continuity": {
+      "archive_manifest_receipt_hash": "249cc848f2ecb880be2acaab940a96fe326b7b32d3c59be153d49a3c8c4c90e3",
+      "archive_receipt_count": 65,
+      "archive_rehydration_verified": true,
+      "capsule_boundaries_survived": [
+        "automatic-retirement",
+        "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a",
+        "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+        "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+        "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+        "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+        "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+        "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+        "tombstone:constraint:privacy-floor:superseded"
+      ],
+      "capsule_commitments_survived": [
+        "claim-slot:api_version",
+        "claim-slot:deployment_region",
+        "claim-slot:max_batch_size",
+        "constraint:privacy-floor",
+        "outcome:migration-complete",
+        "outcome:owner-approved",
+        "outcome:tests-complete"
+      ],
+      "had_to_return_from_archive": [
+        "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+        "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+        "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+        "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+        "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+        "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+        "tombstone:constraint:privacy-floor:superseded"
+      ],
+      "summary_changed": [],
+      "summary_lost": [
+        "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+        "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+        "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+        "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+        "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+        "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+        "tombstone:constraint:privacy-floor:superseded"
+      ]
+    },
+    "display": {
+      "disposition": "ELIGIBLE_FOR_RECEIVER_GATE",
+      "headline": "Change the model without losing the agent.",
+      "subhead": "The capsule kept the receiver decisions the ordinary summary dropped."
+    },
+    "generated_at": "2026-07-19T05:27:08.937719Z",
+    "half_life_verification": {
+      "bundle_chain_valid": true,
+      "bundle_schema": "openline.half-life.receipt-bundle.v3",
+      "compaction_valid": true,
+      "decision_equivalence_exact": true,
+      "decision_equivalence_report_hash": "ac314849c9b845906a0829a8089cf9a668cb75122e7f2a411349f845dbede113",
+      "receipt_count": 67,
+      "semantic_checks": {
+        "archive_matches_oracle": true,
+        "capsule_matches_oracle": true,
+        "stored_capsule_hash_matches": true,
+        "stored_equivalence_passed": true,
+        "stored_full_history_hash_matches": true
+      },
+      "valid": true,
+      "version": "0.2.0rc5"
+    },
+    "independent_grade": {
+      "archive_matches_oracle": true,
+      "capsule_matches_oracle": true,
+      "full_history_matches_oracle": true,
+      "passed": true,
+      "summary_loss_is_required_for_pass": false,
+      "summary_matches_oracle": false
+    },
+    "lanes": {
+      "full_history": {
+        "adapter_id": "offline-deterministic-target-v1",
+        "boundaries_survived": [
+          "automatic-retirement",
+          "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a",
+          "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+          "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+          "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+          "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+          "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+          "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+          "tombstone:constraint:privacy-floor:superseded"
+        ],
+        "changed_decisions": [],
+        "commitments_survived": [
+          "claim-slot:api_version",
+          "claim-slot:deployment_region",
+          "claim-slot:max_batch_size",
+          "constraint:privacy-floor",
+          "outcome:migration-complete",
+          "outcome:owner-approved",
+          "outcome:tests-complete"
+        ],
+        "decision_count": 16,
+        "decision_hash": "7b6fa839ac9be86dc2be0d32157398548164db936f7f599bdc287325eb50571e",
+        "input_bytes": 41871,
+        "input_hash": "2d83e1a53ad987c3ed69f36ade0b6b31212ebd42302ff9f8ec212f5d9731a028",
+        "introduced_decisions": [],
+        "lane_id": "full_history",
+        "lost_decisions": [],
+        "matches_oracle": true,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "projection": {
+          "automatic-retirement": {
+            "disposition": "DENY",
+            "state_hash": "0f23a77deba6ee77fe6f36fbc057fc3d119f4afddbbcc096c006e2268c7ed73e"
+          },
+          "claim-slot:api_version": {
+            "disposition": "COMMIT",
+            "state_hash": "cc4a271c800a4d2ab5f48cd3ee85882c0cfa4b090b8465d3938842e9f64ef65c"
+          },
+          "claim-slot:deployment_region": {
+            "disposition": "COMMIT",
+            "state_hash": "fe6e1ea825a0aee96551873823d4fac5661240f9fb357c655ce794d028b739bd"
+          },
+          "claim-slot:max_batch_size": {
+            "disposition": "COMMIT",
+            "state_hash": "ce8dcbb80a7937051a682e7570e557a71775aec1c42597e940850d41f039d663"
+          },
+          "constraint:privacy-floor": {
+            "disposition": "COMMIT",
+            "state_hash": "00df1ef4c24ec470d1ec8adb8d04bc1d5ef090b79922883934d816cff8debe89"
+          },
+          "outcome:migration-complete": {
+            "disposition": "COMMIT",
+            "state_hash": "c74495a6f4293b15da855da26999ab3d1648e2368fbcf8d0156c8fe8821ad75a"
+          },
+          "outcome:owner-approved": {
+            "disposition": "COMMIT",
+            "state_hash": "1dd0aee611fb1ee8a31a888b4ecf72790e450bf6010251aa5604dc9ab7101d39"
+          },
+          "outcome:tests-complete": {
+            "disposition": "COMMIT",
+            "state_hash": "68c6c62f5a8e37f4cf8ac542852cd41cd5dbe301c6aa93da2e04bbcccd9e5019"
+          },
+          "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a": {
+            "disposition": "QUARANTINE",
+            "state_hash": "001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a"
+          },
+          "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale": {
+            "disposition": "DENY",
+            "state_hash": "2dc9baa4ac94f18ff33ac212d0adf93bf2cea5061d111d8aef2ad1c4ae6ca950"
+          },
+          "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded": {
+            "disposition": "DENY",
+            "state_hash": "b985e2898c9d2954385ac2aef869bcedd8fba85da3a7bfb7884ffbff5380bcc3"
+          },
+          "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded": {
+            "disposition": "DENY",
+            "state_hash": "426456def399a053b909e23d7bac778e4ecb0cab268658fed66016b2802aabfa"
+          },
+          "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected": {
+            "disposition": "DENY",
+            "state_hash": "f0c5410471d14e2b3cfa960115e07b3fab34a16c607f4084fa6127c2d11533ea"
+          },
+          "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected": {
+            "disposition": "DENY",
+            "state_hash": "52ca885d97e362ed576777ba1415d090674778f7bcc57bc239247457adeb6198"
+          },
+          "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded": {
+            "disposition": "DENY",
+            "state_hash": "364d34c470cc98758582c8c3e0460afe415c37a864c4f10b50a12e88656c8ff3"
+          },
+          "tombstone:constraint:privacy-floor:superseded": {
+            "disposition": "DENY",
+            "state_hash": "f44e63c2db34aa0b6b06d1e64779322c5792f4ce39416c3236a9a893c06ee07c"
+          }
+        }
+      },
+      "ordinary_summary": {
+        "adapter_id": "offline-deterministic-target-v1",
+        "boundaries_survived": [
+          "automatic-retirement",
+          "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a"
+        ],
+        "changed_decisions": [],
+        "commitments_survived": [
+          "claim-slot:api_version",
+          "claim-slot:deployment_region",
+          "claim-slot:max_batch_size",
+          "constraint:privacy-floor",
+          "outcome:migration-complete",
+          "outcome:owner-approved",
+          "outcome:tests-complete"
+        ],
+        "decision_count": 9,
+        "decision_hash": "6063cd212122c95757205032237e66a8a045f644a89738c01cf6e435c4a17007",
+        "input_bytes": 1919,
+        "input_hash": "f7b56310e3b323d90ab2098b2eab3cd557e965684cf8b937a2877963be44abea",
+        "introduced_decisions": [],
+        "lane_id": "ordinary_summary",
+        "lost_decisions": [
+          "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+          "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+          "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+          "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+          "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+          "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+          "tombstone:constraint:privacy-floor:superseded"
+        ],
+        "matches_oracle": false,
+        "mismatch_count": 7,
+        "mismatches": [
+          {
+            "candidate": null,
+            "decision_key": "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "2dc9baa4ac94f18ff33ac212d0adf93bf2cea5061d111d8aef2ad1c4ae6ca950"
+            }
+          },
+          {
+            "candidate": null,
+            "decision_key": "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "b985e2898c9d2954385ac2aef869bcedd8fba85da3a7bfb7884ffbff5380bcc3"
+            }
+          },
+          {
+            "candidate": null,
+            "decision_key": "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "426456def399a053b909e23d7bac778e4ecb0cab268658fed66016b2802aabfa"
+            }
+          },
+          {
+            "candidate": null,
+            "decision_key": "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "f0c5410471d14e2b3cfa960115e07b3fab34a16c607f4084fa6127c2d11533ea"
+            }
+          },
+          {
+            "candidate": null,
+            "decision_key": "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "52ca885d97e362ed576777ba1415d090674778f7bcc57bc239247457adeb6198"
+            }
+          },
+          {
+            "candidate": null,
+            "decision_key": "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "364d34c470cc98758582c8c3e0460afe415c37a864c4f10b50a12e88656c8ff3"
+            }
+          },
+          {
+            "candidate": null,
+            "decision_key": "tombstone:constraint:privacy-floor:superseded",
+            "oracle": {
+              "disposition": "DENY",
+              "state_hash": "f44e63c2db34aa0b6b06d1e64779322c5792f4ce39416c3236a9a893c06ee07c"
+            }
+          }
+        ],
+        "projection": {
+          "automatic-retirement": {
+            "disposition": "DENY",
+            "state_hash": "0f23a77deba6ee77fe6f36fbc057fc3d119f4afddbbcc096c006e2268c7ed73e"
+          },
+          "claim-slot:api_version": {
+            "disposition": "COMMIT",
+            "state_hash": "cc4a271c800a4d2ab5f48cd3ee85882c0cfa4b090b8465d3938842e9f64ef65c"
+          },
+          "claim-slot:deployment_region": {
+            "disposition": "COMMIT",
+            "state_hash": "fe6e1ea825a0aee96551873823d4fac5661240f9fb357c655ce794d028b739bd"
+          },
+          "claim-slot:max_batch_size": {
+            "disposition": "COMMIT",
+            "state_hash": "ce8dcbb80a7937051a682e7570e557a71775aec1c42597e940850d41f039d663"
+          },
+          "constraint:privacy-floor": {
+            "disposition": "COMMIT",
+            "state_hash": "00df1ef4c24ec470d1ec8adb8d04bc1d5ef090b79922883934d816cff8debe89"
+          },
+          "outcome:migration-complete": {
+            "disposition": "COMMIT",
+            "state_hash": "c74495a6f4293b15da855da26999ab3d1648e2368fbcf8d0156c8fe8821ad75a"
+          },
+          "outcome:owner-approved": {
+            "disposition": "COMMIT",
+            "state_hash": "1dd0aee611fb1ee8a31a888b4ecf72790e450bf6010251aa5604dc9ab7101d39"
+          },
+          "outcome:tests-complete": {
+            "disposition": "COMMIT",
+            "state_hash": "68c6c62f5a8e37f4cf8ac542852cd41cd5dbe301c6aa93da2e04bbcccd9e5019"
+          },
+          "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a": {
+            "disposition": "QUARANTINE",
+            "state_hash": "001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a"
+          }
+        }
+      },
+      "verified_capsule": {
+        "adapter_id": "offline-deterministic-target-v1",
+        "boundaries_survived": [
+          "automatic-retirement",
+          "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a",
+          "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale",
+          "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded",
+          "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded",
+          "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected",
+          "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected",
+          "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded",
+          "tombstone:constraint:privacy-floor:superseded"
+        ],
+        "changed_decisions": [],
+        "commitments_survived": [
+          "claim-slot:api_version",
+          "claim-slot:deployment_region",
+          "claim-slot:max_batch_size",
+          "constraint:privacy-floor",
+          "outcome:migration-complete",
+          "outcome:owner-approved",
+          "outcome:tests-complete"
+        ],
+        "decision_count": 16,
+        "decision_hash": "7b6fa839ac9be86dc2be0d32157398548164db936f7f599bdc287325eb50571e",
+        "input_bytes": 7325,
+        "input_hash": "8436eae8c2e158a44d06b66284d9b9b632df98c7572dc49b22467df0c4f49d1a",
+        "introduced_decisions": [],
+        "lane_id": "verified_capsule",
+        "lost_decisions": [],
+        "matches_oracle": true,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "projection": {
+          "automatic-retirement": {
+            "disposition": "DENY",
+            "state_hash": "0f23a77deba6ee77fe6f36fbc057fc3d119f4afddbbcc096c006e2268c7ed73e"
+          },
+          "claim-slot:api_version": {
+            "disposition": "COMMIT",
+            "state_hash": "cc4a271c800a4d2ab5f48cd3ee85882c0cfa4b090b8465d3938842e9f64ef65c"
+          },
+          "claim-slot:deployment_region": {
+            "disposition": "COMMIT",
+            "state_hash": "fe6e1ea825a0aee96551873823d4fac5661240f9fb357c655ce794d028b739bd"
+          },
+          "claim-slot:max_batch_size": {
+            "disposition": "COMMIT",
+            "state_hash": "ce8dcbb80a7937051a682e7570e557a71775aec1c42597e940850d41f039d663"
+          },
+          "constraint:privacy-floor": {
+            "disposition": "COMMIT",
+            "state_hash": "00df1ef4c24ec470d1ec8adb8d04bc1d5ef090b79922883934d816cff8debe89"
+          },
+          "outcome:migration-complete": {
+            "disposition": "COMMIT",
+            "state_hash": "c74495a6f4293b15da855da26999ab3d1648e2368fbcf8d0156c8fe8821ad75a"
+          },
+          "outcome:owner-approved": {
+            "disposition": "COMMIT",
+            "state_hash": "1dd0aee611fb1ee8a31a888b4ecf72790e450bf6010251aa5604dc9ab7101d39"
+          },
+          "outcome:tests-complete": {
+            "disposition": "COMMIT",
+            "state_hash": "68c6c62f5a8e37f4cf8ac542852cd41cd5dbe301c6aa93da2e04bbcccd9e5019"
+          },
+          "question:001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a": {
+            "disposition": "QUARANTINE",
+            "state_hash": "001c543ecf9e099c41647b2bb37e2ad2aabeead3d8969f3d4af1f325253c147a"
+          },
+          "tombstone:claim-state:api_version:161078e42e8fef3ba4b9c984035baa2e431a50b31a18ac95614cc6820394af13:stale": {
+            "disposition": "DENY",
+            "state_hash": "2dc9baa4ac94f18ff33ac212d0adf93bf2cea5061d111d8aef2ad1c4ae6ca950"
+          },
+          "tombstone:claim-state:api_version:576506f61f53440f1edd95d28631a17e26f50d613eef2943a030220b66c5f5b3:superseded": {
+            "disposition": "DENY",
+            "state_hash": "b985e2898c9d2954385ac2aef869bcedd8fba85da3a7bfb7884ffbff5380bcc3"
+          },
+          "tombstone:claim-state:deployment_region:004fcf79011fef996338b69cd50c4f23d1ef7b6de102ea45769cf47e2262d2a6:superseded": {
+            "disposition": "DENY",
+            "state_hash": "426456def399a053b909e23d7bac778e4ecb0cab268658fed66016b2802aabfa"
+          },
+          "tombstone:claim-state:deployment_region:cda928f543728ab002e256582b42398982858743d11841a4fccbcd646c0baf80:rejected": {
+            "disposition": "DENY",
+            "state_hash": "f0c5410471d14e2b3cfa960115e07b3fab34a16c607f4084fa6127c2d11533ea"
+          },
+          "tombstone:claim-state:max_batch_size:5ac95f46dcda9e6a85f4d281cd691aea7b00846d8f8612d198d396136e9c5140:rejected": {
+            "disposition": "DENY",
+            "state_hash": "52ca885d97e362ed576777ba1415d090674778f7bcc57bc239247457adeb6198"
+          },
+          "tombstone:claim-state:max_batch_size:b9a9f15714a2a7af00637c2030926ce17919df2d9dc3b3531d582e7bbad7315c:superseded": {
+            "disposition": "DENY",
+            "state_hash": "364d34c470cc98758582c8c3e0460afe415c37a864c4f10b50a12e88656c8ff3"
+          },
+          "tombstone:constraint:privacy-floor:superseded": {
+            "disposition": "DENY",
+            "state_hash": "f44e63c2db34aa0b6b06d1e64779322c5792f4ce39416c3236a9a893c06ee07c"
+          }
+        }
+      }
+    },
+    "models": {
+      "provider_execution_attested": false,
+      "source": "fixture/source-model",
+      "source_adapter": "offline-deterministic-source-v1",
+      "target": "fixture/target-model",
+      "target_adapter": "offline-deterministic-target-v1"
+    },
+    "oracle": {
+      "decision_count": 16,
+      "decision_hash": "7b6fa839ac9be86dc2be0d32157398548164db936f7f599bdc287325eb50571e",
+      "evaluator": "independent_reference_replay_v1"
+    },
+    "profile": "verified_model_swap/v1",
+    "proof_hash": "4e48b7f0ce13ddfaeecec936f33677c4d1e1dd7aa89feb1846cccb68dbdc89bf",
+    "receiver_controls": {
+      "automatic_compaction_authorized": false,
+      "automatic_retirement_authorized": false,
+      "compaction_policy_hash": "4354abb073b9e4ae859320c8b5a47a663515dcb7c3ca9493dcae6e64447c8235",
+      "succession_policy_hash": "b3f812fd107b65479f628edb2d9ab7f2f93aa490ddd9e5bb173aec6089736437",
+      "trusted_key_version": "receiver-compaction-key-v2"
+    },
+    "schema": "openline.verified-model-swap.proof-card.v1",
+    "trial_id": "verified-model-swap-demo"
+  },
+  "schema": "openline.verified-model-swap.dsm-projection.v1"
+}

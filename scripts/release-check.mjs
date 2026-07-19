@@ -8,7 +8,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const run = (command, args) => execFileSync(command, args, { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 const digest = (path) => createHash("sha256").update(readFileSync(resolve(root, path))).digest("hex");
 const python = process.env.PYTHON || (process.platform === "win32" ? "python" : "python3");
-const pythonSources = ["server main.py", "olp_client.py", "wire_openline_demo.py"];
+const pythonSources = ["server main.py", "dsm_security.py", "olp_client.py", "wire_openline_demo.py"];
 
 const checks = [];
 function check(name, action) {
@@ -22,6 +22,7 @@ function check(name, action) {
 
 check("JavaScript syntax: demo data", () => run(process.execPath, ["--check", "docs/demo-data.js"]));
 check("JavaScript syntax: instrument", () => run(process.execPath, ["--check", "docs/instrument.js"]));
+check("JavaScript syntax: model-swap display", () => run(process.execPath, ["--check", "docs/verified-model-swap.js"]));
 check("Python syntax: all sources", () => run(python, ["-m", "py_compile", ...pythonSources]));
 check("Python integrity and canonical receipt", () => run(python, ["tests/python_integrity.py"]));
 check("FastAPI import and runtime smoke", () => run(python, ["tests/server_runtime_smoke.py"]));
@@ -32,17 +33,19 @@ check("No remote runtime dependencies", () => {
   return "all CSS and JavaScript are local";
 });
 
-const pythonFiles = ["server main.py", "olp_client.py", "wire_openline_demo.py"];
+const pythonFiles = ["server main.py", "dsm_security.py", "olp_client.py", "wire_openline_demo.py"];
 const report = {
   schema: "dynamic-sentience-maps/release-verification/v2",
-  candidate: "0.2.0-rc.2",
+  candidate: "0.2.0-rc.3",
   generated_at: new Date().toISOString(),
   disposition: checks.every(({ status }) => status === "pass") ? "clear" : "hold",
   checks,
   python_source_sha256: Object.fromEntries(pythonFiles.map((path) => [path, digest(path)])),
   canonical_receipt_sha256: digest("docs/receipt.latest.json"),
+  verified_model_swap_projection_sha256: digest("docs/verified_model_swap.latest.json"),
   public_surface_sha256: Object.fromEntries([
     "docs/index.html", "docs/styles.css", "docs/demo-data.js", "docs/instrument.js",
+    "docs/verified-model-swap.js",
   ].map((path) => [path, digest(path)])),
   verification_source_sha256: Object.fromEntries([
     "scripts/release-check.mjs", "tests/instrument.test.mjs", "tests/python_integrity.py",
@@ -50,6 +53,8 @@ const report = {
   ].map((path) => [path, digest(path)])),
   claim_boundary: [
     "The graph and readings are deterministic demonstration proxies.",
+    "DSM renders a producer-supplied model-swap projection and does not grade the lanes.",
+    "Fixture model identifiers do not attest execution by a commercial provider.",
     "This verification does not establish scientific validity or a private kernel implementation.",
     "Evidence and receiver policy must be checked in addition to signatures or hashes."
   ],

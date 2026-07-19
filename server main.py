@@ -17,9 +17,12 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import uvicorn
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
+
+from dsm_security import allowed_origins, mutation_authorization
 
 
 logging.basicConfig(level=logging.INFO)
@@ -31,13 +34,31 @@ app = FastAPI(
     version="0.1.0",
 )
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins(os.environ.get("DSM_ALLOWED_ORIGINS")),
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type"],
 )
+
+
+@app.middleware("http")
+async def protect_mutations(request: Request, call_next):
+    if request.method.upper() in {"POST", "PUT", "PATCH", "DELETE"}:
+        peer = request.client.host if request.client else None
+        allowed, status_code, reason = mutation_authorization(
+            peer,
+            request.headers.get("authorization"),
+            os.environ.get("DSM_MUTATION_TOKEN"),
+        )
+        if not allowed:
+            return JSONResponse(
+                status_code=status_code,
+                content={"detail": "mutation request denied", "reason": reason},
+            )
+    return await call_next(request)
 
 
 class NodeData(BaseModel):
@@ -533,4 +554,10 @@ async def import_csv(file: UploadFile = File(...)) -> Dict[str, str]:
 
 if __name__ == "__main__":
     logger.info("Starting Dynamic Sentience Maps server")
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+    uvicorn.run(
+        app,
+        host=os.environ.get("DSM_HOST", "127.0.0.1"),
+        port=int(os.environ.get("DSM_PORT", "8000")),
+        log_level="info",
+        proxy_headers=False,
+    )
