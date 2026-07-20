@@ -56,18 +56,18 @@ if (ROOT / "docs" / "docs" / "receipt.latest.json").exists():
     raise AssertionError("nested duplicate receipt exists")
 
 receipt = json.loads(canonical.read_text(encoding="utf-8"))
-if "Dynamic Sentience Maps" not in receipt.get("claim", ""):
-    raise AssertionError("canonical receipt is not project-specific")
+if receipt.get("claim") != "DSM deterministically renders an anonymized semantic-collision fixture across baseline, pressure, and drift states.":
+    raise AssertionError("canonical receipt claim boundary changed")
 if "SPY" in json.dumps(receipt):
     raise AssertionError("stock-template content remains in the canonical receipt")
 if receipt.get("model") != "dynamic-sentience-maps/public-instrument":
     raise AssertionError("canonical receipt model is incorrect")
-if receipt.get("attrs", {}).get("candidate") != "0.2.0-rc.3":
+if receipt.get("attrs", {}).get("candidate") != "0.2.0-rc.4":
     raise AssertionError("canonical receipt candidate is stale")
 if not receipt.get("generated_at") or not receipt.get("freshness", {}).get("expires_on_source_change"):
     raise AssertionError("canonical receipt does not expose its freshness boundary")
 
-for script_name in ("instrument.js", "verified-model-swap.js"):
+for script_name in ("instrument.js", "verified-model-swap.js", "semantic-case.js"):
     script = (ROOT / "docs" / script_name).read_text(encoding="utf-8")
     if ".innerHTML" in script:
         raise AssertionError(f"{script_name} contains an innerHTML assignment or access")
@@ -90,4 +90,18 @@ if hashlib.sha256(proof_bytes).hexdigest() != projection.get("integrity", {}).ge
 if projection.get("gate_decision", {}).get("payload_hash") != projection.get("integrity", {}).get("decision_receipt_payload_hash"):
     raise AssertionError("displayed Gate decision pointer is inconsistent")
 
-print("PASS source transport, canonical receipt, display projection integrity, and DOM sinks")
+semantic_fixture = json.loads((ROOT / "docs" / "demos" / "same-word-different-rules.json").read_text(encoding="utf-8"))
+if semantic_fixture.get("case_id") != "same-word-different-rules":
+    raise AssertionError("semantic case ID is unsupported")
+if semantic_fixture.get("final_status") != "Unresolved semantic collision":
+    raise AssertionError("semantic case final status changed")
+if [state.get("id") for state in semantic_fixture.get("states", [])] != ["baseline", "pressure", "drift"]:
+    raise AssertionError("semantic case state order changed")
+if semantic_fixture.get("claim_boundary") != "DSM deterministically renders an anonymized semantic-collision fixture across baseline, pressure, and drift states.":
+    raise AssertionError("semantic case claim boundary changed")
+serialized_case = json.dumps(semantic_fixture).lower()
+for forbidden in ("@", "profile photograph", "engagement count"):
+    if forbidden in serialized_case:
+        raise AssertionError(f"identifying or social metadata remains in semantic fixture: {forbidden}")
+
+print("PASS source transport, canonical receipt, semantic fixture, display projection integrity, and DOM sinks")

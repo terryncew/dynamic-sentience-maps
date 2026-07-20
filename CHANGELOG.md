@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0-rc.4
+
+- Added the public “Same Word, Different Rules” semantic-collision case study.
+- Added a deterministic baseline, pressure, and drift fixture with explicit claims, assumptions, relations, qualifications, and an unresolved category hinge.
+- Kept the case display-only and anonymized: DSM does not classify people, institutions, or statements as racist and does not issue moral or political verdicts.
+- Added keyboard state navigation, reduced-motion-safe behavior, mobile layout, fixture-source inspection, and deterministic release checks.
+
 ## 0.2.0-rc.3
 
 - Added a three-lane Verified Model Swap spread sourced from Receipt Gate's

@@ -5,6 +5,7 @@ import test from "node:test";
 import { API_CONTRACTS, LINKS, METRIC_DEFINITIONS, NODES, REGIONS, STATES } from "../docs/demo-data.js";
 import { averageRegionStress, edgePath } from "../docs/instrument.js";
 import { projectionToView, renderVerifiedModelSwap } from "../docs/verified-model-swap.js";
+import { activeEdgeIds, nextStateId, resolveCaseFromSearch, validateSemanticFixture, visibleNodeIds } from "../docs/semantic-case.js";
 
 const rootFile = (path) => new URL(`../${path}`, import.meta.url);
 const read = async (path) => readFile(rootFile(path), "utf8");
@@ -172,4 +173,79 @@ test("release automation executes Python rather than treating hashes as correctn
   assert.match(workflow, /setup-python/);
   assert.match(workflow, /py_compile/);
   assert.match(workflow, /server_runtime_smoke\.py/);
+});
+
+
+test("the Same Word case route is additive and the default demo remains intact", async () => {
+  const [html, fixtureText] = await Promise.all([
+    read("docs/index.html"), read("docs/demos/same-word-different-rules.json"),
+  ]);
+  assert.equal(resolveCaseFromSearch(""), null);
+  assert.equal(resolveCaseFromSearch("?case=same-word-different-rules"), "same-word-different-rules");
+  assert.match(html, /id="semantic-collision-case"/);
+  assert.match(html, /href="\.\/\?case=same-word-different-rules"/);
+  assert.match(html, /id="instrument"/);
+  assert.match(html, /id="coherence-map"/);
+  assert.doesNotThrow(() => validateSemanticFixture(JSON.parse(fixtureText)));
+});
+
+test("the semantic fixture renders the required stable nodes and relations", async () => {
+  const fixture = validateSemanticFixture(JSON.parse(await read("docs/demos/same-word-different-rules.json")));
+  const expectedNodes = [
+    "definition_power", "classification_examples", "inconsistency_claim", "same_rule_assumption",
+    "false_equivalence_claim", "context_rule", "comparison_rule", "category_hinge",
+    "character_judgment", "unresolved_status",
+  ];
+  assert.deepEqual(fixture.nodes.map(({ id }) => id), expectedNodes);
+  assert.equal(fixture.edges.length, 10);
+  assert.deepEqual(new Set(fixture.edges.map(({ relation }) => relation)), new Set(["depends_on", "supports", "contradicts", "updates", "drifts_from"]));
+  assert.equal(fixture.edges.find(({ id }) => id === "examples_to_inconsistency").qualification, "Only if the examples fall under the same comparison rule.");
+  const source = await read("docs/semantic-case.js");
+  assert.match(source, /data-case-node/);
+  assert.match(source, /data-case-edge/);
+  assert.doesNotMatch(source, /\.innerHTML\b/);
+});
+
+test("baseline, pressure, and drift expose only the intended graph state", async () => {
+  const fixture = validateSemanticFixture(JSON.parse(await read("docs/demos/same-word-different-rules.json")));
+  assert.deepEqual(visibleNodeIds(fixture, "baseline"), ["definition_power", "classification_examples", "inconsistency_claim", "same_rule_assumption"]);
+  assert.deepEqual(visibleNodeIds(fixture, "pressure").slice(-4), ["false_equivalence_claim", "context_rule", "comparison_rule", "category_hinge"]);
+  assert.ok(activeEdgeIds(fixture, "pressure").includes("false_equivalence_to_inconsistency"));
+  assert.ok(visibleNodeIds(fixture, "drift").includes("character_judgment"));
+  assert.ok(visibleNodeIds(fixture, "drift").includes("unresolved_status"));
+  assert.equal(fixture.final_status, "Unresolved semantic collision");
+});
+
+test("the semantic case remains anonymized and refuses speaker verdicts", async () => {
+  const fixtureText = await read("docs/demos/same-word-different-rules.json");
+  const fixture = JSON.parse(fixtureText);
+  assert.equal(fixture.source_disclosure, "Based on an anonymized public exchange. Claims have been paraphrased to isolate the reasoning structure.");
+  assert.doesNotMatch(fixtureText, /@[A-Za-z0-9_]+|profile[_ ]?photo|engagement[_ ]?count|followers|likes|reposts/i);
+  assert.doesNotMatch(fixtureText, /Speaker\s+[AB]\s+(?:is|was|seems)\s+(?:racist|not racist|dishonest|correct|incorrect)/i);
+  assert.equal(fixture.prohibited_claim, "DSM does not determine whether a person, institution, or statement is racist.");
+});
+
+test("keyboard state traversal, reduced motion, and responsive layouts are explicit", async () => {
+  const fixture = JSON.parse(await read("docs/demos/same-word-different-rules.json"));
+  const [html, css, source] = await Promise.all([read("docs/index.html"), read("docs/styles.css"), read("docs/semantic-case.js")]);
+  assert.equal(nextStateId(fixture, "baseline", "ArrowRight"), "pressure");
+  assert.equal(nextStateId(fixture, "pressure", "ArrowRight"), "drift");
+  assert.equal(nextStateId(fixture, "drift", "ArrowRight"), "baseline");
+  assert.equal(nextStateId(fixture, "drift", "Home"), "baseline");
+  assert.equal(nextStateId(fixture, "baseline", "End"), "drift");
+  assert.equal((html.match(/data-case-state=/g) ?? []).length, 3);
+  assert.match(source, /prefers-reduced-motion: reduce/);
+  assert.match(source, /max-width: 760px/);
+  assert.match(css, /@media \(max-width: 760px\)/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
+});
+
+test("semantic readings are deterministic demonstration proxies with the expected direction", async () => {
+  const fixture = JSON.parse(await read("docs/demos/same-word-different-rules.json"));
+  const [baseline, pressure, drift] = fixture.states;
+  assert.ok(baseline.metrics.kappa < pressure.metrics.kappa && pressure.metrics.kappa < drift.metrics.kappa);
+  assert.ok(baseline.metrics.epsilon < pressure.metrics.epsilon && pressure.metrics.epsilon < drift.metrics.epsilon);
+  assert.ok(baseline.metrics.phi_star > pressure.metrics.phi_star && pressure.metrics.phi_star > drift.metrics.phi_star);
+  assert.match(await read("docs/index.html"), /DEMONSTRATION PROXIES · NOT A VERDICT/);
+  assert.match(await read("docs/index.html"), /Open fixture source/);
 });

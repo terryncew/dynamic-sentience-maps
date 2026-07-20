@@ -1,21 +1,17 @@
 {
-  "claim": "Dynamic Sentience Maps v0.2.0rc3 remains on hold pending bounded release verification",
+  "claim": "DSM deterministically renders an anonymized semantic-collision fixture across baseline, pressure, and drift states.",
   "because": [
-    "JavaScript syntax: demo data",
-    "JavaScript syntax: instrument",
-    "JavaScript syntax: model-swap display",
-    "Python syntax: all sources",
-    "Python integrity and canonical receipt",
-    "Deterministic test suite",
-    "No remote runtime dependencies"
+    "The case fixture declares stable nodes, relations, qualifications, and exactly three observation states",
+    "The public route renders the fixture without changing the default DSM demonstration",
+    "npm test passed the deterministic JavaScript and Python integrity suite",
+    "npm run check passed JavaScript syntax, Python compilation/import, SQLite round-trip, mutation boundary, Bridge API, DOM safety, model-swap integrity, and canonical-receipt checks"
   ],
   "but": [
-    "Public readings remain disclosed demonstration proxies",
-    "No private bridge kernel or universal scientific threshold is certified",
-    "The model identifiers are fixture declarations; commercial provider execution is not attested",
-    "Pending or failed checks: FastAPI import and runtime smoke"
+    "The readings are demonstration proxies, not universal thresholds",
+    "The fixture does not decide which speaker is morally or politically correct",
+    "DSM does not determine whether a person, institution, or statement is racist"
   ],
-  "so": "Hold until every declared release check passes in the current source snapshot",
+  "so": "Use the case to inspect the missing decision rule; do not treat it as a political verdict or human diagnosis.",
   "telem": {
     "delta_scale": 0.0
   },
@@ -23,16 +19,17 @@
   "model": "dynamic-sentience-maps/public-instrument",
   "attrs": {
     "cadence": "release",
-    "candidate": "0.2.0-rc.3",
-    "disposition": "hold",
+    "candidate": "0.2.0-rc.4",
+    "disposition": "clear",
     "evidence": [
-      "RELEASE_VERIFICATION.json",
+      "docs/demos/same-word-different-rules.json",
+      "docs/semantic-case.js",
+      "tests/instrument.test.mjs",
       "tests/python_integrity.py",
-      "tests/server_runtime_smoke.py",
-      "tests/instrument.test.mjs"
+      "RELEASE_VERIFICATION.json"
     ]
   },
-  "generated_at": "2026-07-19T05:29:47.774962+00:00",
+  "generated_at": "2026-07-20T18:28:37.227925+00:00",
   "freshness": {
     "scope": "this release-candidate source snapshot",
     "expires_on_source_change": true

@@ -1,0 +1,58 @@
+{
+  "schema": "dynamic-sentience-maps/case-study/v1",
+  "case_id": "same-word-different-rules",
+  "title": "Same Word, Different Rules",
+  "deck": "Two people can use the same word while applying different tests. This map shows where the argument stops sharing a rule.",
+  "final_status": "Unresolved semantic collision",
+  "final_explanation": "The speakers use different criteria for the same category. More examples alone will not resolve the dispute until the decision rule is made explicit.",
+  "primary_hinge": "Is racial classification sufficient, or does context determine the category?",
+  "primary_question": "What makes a race-specific institution or action racist?",
+  "criteria_under_dispute": [
+    "racial classification itself",
+    "institutional power",
+    "purpose",
+    "exclusion",
+    "coercion",
+    "material effect",
+    "historical context",
+    "whether the same comparison rule is applied across cases"
+  ],
+  "source_disclosure": "Based on an anonymized public exchange. Claims have been paraphrased to isolate the reasoning structure.",
+  "claim_boundary": "DSM deterministically renders an anonymized semantic-collision fixture across baseline, pressure, and drift states.",
+  "prohibited_claim": "DSM does not determine whether a person, institution, or statement is racist.",
+  "exchange": [
+    {"speaker": "Speaker A", "text": "One proposed definition treats racism as prejudice combined with institutional power."},
+    {"speaker": "Speaker A", "text": "The speaker then points to accepted race-specific institutions and asks whether the rule is being applied consistently."},
+    {"speaker": "Speaker B", "text": "The reply rejects the comparison as a false equivalence because context may change the category."},
+    {"speaker": "Drift marker", "text": "The exchange then shifts from evaluating the comparison to evaluating the intellectual honesty of the person making it."}
+  ],
+  "nodes": [
+    {"id":"definition_power","label":"Racism requires institutional power.","short_label":"Power definition","type":"definition","meaning":"One proposed category rule defines racism as prejudice combined with institutional power.","x":120,"y":95,"mobile_x":105,"mobile_y":90,"stress":{"baseline":0.18,"pressure":0.32,"drift":0.43}},
+    {"id":"classification_examples","label":"Some race-specific institutions are accepted without being classified as racist.","short_label":"Accepted examples","type":"observation","meaning":"The speaker presents several socially accepted race-specific institutions and initiatives.","x":385,"y":95,"mobile_x":315,"mobile_y":90,"stress":{"baseline":0.22,"pressure":0.36,"drift":0.48}},
+    {"id":"inconsistency_claim","label":"The rule is being applied inconsistently.","short_label":"Inconsistency claim","type":"claim","meaning":"The speaker argues that the accepted examples conflict with the stated definition or its usual application.","x":255,"y":245,"mobile_x":210,"mobile_y":220,"stress":{"baseline":0.29,"pressure":0.64,"drift":0.79}},
+    {"id":"same_rule_assumption","label":"The examples should be judged under the same classification rule.","short_label":"Same-rule assumption","type":"assumption","meaning":"The inconsistency claim only works if the compared cases belong under one shared test.","x":120,"y":405,"mobile_x":105,"mobile_y":350,"stress":{"baseline":0.31,"pressure":0.57,"drift":0.68}},
+    {"id":"false_equivalence_claim","label":"The examples are a false equivalence.","short_label":"False equivalence","type":"counterclaim","meaning":"The responder rejects the comparison rather than accepting the proposed inconsistency.","x":565,"y":245,"mobile_x":105,"mobile_y":485,"stress":{"baseline":0.08,"pressure":0.67,"drift":0.81}},
+    {"id":"context_rule","label":"Purpose, power, exclusion, coercion, effect, and history may change the classification.","short_label":"Context rule","type":"assumption","meaning":"The false-equivalence response implies that racial classification alone may be insufficient.","x":820,"y":245,"mobile_x":315,"mobile_y":485,"stress":{"baseline":0.07,"pressure":0.55,"drift":0.69}},
+    {"id":"comparison_rule","label":"What makes two race-specific cases meaningfully comparable?","short_label":"Comparison rule?","type":"unresolved_question","meaning":"Neither speaker provides a complete comparison rule.","x":565,"y":405,"mobile_x":210,"mobile_y":620,"stress":{"baseline":0.09,"pressure":0.72,"drift":0.82}},
+    {"id":"category_hinge","label":"Is racial classification sufficient, or does context determine the category?","short_label":"Category hinge","type":"hinge","meaning":"This is the unresolved decision boundary beneath the visible disagreement.","x":500,"y":555,"mobile_x":210,"mobile_y":755,"stress":{"baseline":0.08,"pressure":0.76,"drift":0.88}},
+    {"id":"character_judgment","label":"Disagreement becomes a judgment about intellectual honesty.","short_label":"Character judgment","type":"drift","meaning":"The conversation moves from evaluating the comparison to evaluating the person making it.","x":800,"y":555,"mobile_x":105,"mobile_y":885,"stress":{"baseline":0.04,"pressure":0.11,"drift":0.91}},
+    {"id":"unresolved_status","label":"Unresolved semantic collision","short_label":"Unresolved status","type":"status","meaning":"The argument cannot resolve until a shared category and comparison rule is selected.","x":200,"y":555,"mobile_x":315,"mobile_y":885,"stress":{"baseline":0.06,"pressure":0.21,"drift":0.74}}
+  ],
+  "edges": [
+    {"id":"definition_to_inconsistency","source":"definition_power","target":"inconsistency_claim","relation":"depends_on"},
+    {"id":"examples_to_inconsistency","source":"classification_examples","target":"inconsistency_claim","relation":"supports","qualification":"Only if the examples fall under the same comparison rule."},
+    {"id":"inconsistency_to_same_rule","source":"inconsistency_claim","target":"same_rule_assumption","relation":"depends_on"},
+    {"id":"false_equivalence_to_inconsistency","source":"false_equivalence_claim","target":"inconsistency_claim","relation":"contradicts"},
+    {"id":"false_equivalence_to_context","source":"false_equivalence_claim","target":"context_rule","relation":"depends_on"},
+    {"id":"same_rule_to_comparison","source":"same_rule_assumption","target":"comparison_rule","relation":"depends_on"},
+    {"id":"context_to_comparison","source":"context_rule","target":"comparison_rule","relation":"depends_on"},
+    {"id":"comparison_to_hinge","source":"comparison_rule","target":"category_hinge","relation":"updates"},
+    {"id":"hinge_to_status","source":"category_hinge","target":"unresolved_status","relation":"supports"},
+    {"id":"character_to_hinge","source":"character_judgment","target":"category_hinge","relation":"drifts_from"}
+  ],
+  "states": [
+    {"id":"baseline","index":"01","label":"Baseline","caption":"One speaker proposes an inconsistency, but the comparison rule remains implicit.","visible_nodes":["definition_power","classification_examples","inconsistency_claim","same_rule_assumption"],"active_edges":["definition_to_inconsistency","examples_to_inconsistency","inconsistency_to_same_rule"],"metrics":{"kappa":0.26,"epsilon":0.12,"i_capacity":0.82,"phi_star":0.84}},
+    {"id":"pressure","index":"02","label":"Pressure","caption":"The reply rejects the comparison, revealing that the speakers are using different tests.","visible_nodes":["definition_power","classification_examples","inconsistency_claim","same_rule_assumption","false_equivalence_claim","context_rule","comparison_rule","category_hinge"],"active_edges":["definition_to_inconsistency","examples_to_inconsistency","inconsistency_to_same_rule","false_equivalence_to_inconsistency","false_equivalence_to_context","same_rule_to_comparison","context_to_comparison","comparison_to_hinge"],"metrics":{"kappa":0.54,"epsilon":0.29,"i_capacity":0.76,"phi_star":0.67}},
+    {"id":"drift","index":"03","label":"Drift","caption":"The exchange moves from examining the rule to judging the speaker. The underlying definition remains unresolved.","visible_nodes":["definition_power","classification_examples","inconsistency_claim","same_rule_assumption","false_equivalence_claim","context_rule","comparison_rule","category_hinge","character_judgment","unresolved_status"],"active_edges":["definition_to_inconsistency","examples_to_inconsistency","inconsistency_to_same_rule","false_equivalence_to_inconsistency","false_equivalence_to_context","same_rule_to_comparison","context_to_comparison","comparison_to_hinge","hinge_to_status","character_to_hinge"],"metrics":{"kappa":0.68,"epsilon":0.42,"i_capacity":0.70,"phi_star":0.52}}
+  ]
+}

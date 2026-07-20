@@ -1,8 +1,8 @@
 {
   "schema": "dynamic-sentience-maps/release-verification/v2",
-  "candidate": "0.2.0-rc.3",
-  "generated_at": "2026-07-19T05:28:00.047Z",
-  "disposition": "hold",
+  "candidate": "0.2.0-rc.4",
+  "generated_at": "2026-07-20T18:28:43.772Z",
+  "disposition": "clear",
   "checks": [
     {
       "name": "JavaScript syntax: demo data",
@@ -20,6 +20,16 @@
       "detail": "verified"
     },
     {
+      "name": "JavaScript syntax: semantic case",
+      "status": "pass",
+      "detail": "verified"
+    },
+    {
+      "name": "Semantic case fixture JSON",
+      "status": "pass",
+      "detail": "parsed"
+    },
+    {
       "name": "Python syntax: all sources",
       "status": "pass",
       "detail": "verified"
@@ -27,17 +37,17 @@
     {
       "name": "Python integrity and canonical receipt",
       "status": "pass",
-      "detail": "PASS source transport, canonical receipt, display projection integrity, and DOM sinks"
+      "detail": "PASS source transport, canonical receipt, semantic fixture, display projection integrity, and DOM sinks"
     },
     {
       "name": "FastAPI import and runtime smoke",
-      "status": "fail",
-      "detail": "Traceback (most recent call last):\n  File \"/workspace/scratch/f244fb2c8a90/verified-model-swap/dynamic-sentience-maps/tests/server_runtime_smoke.py\", line 37, in <module>\n    spec.loader.exec_module(server)\n  File \"<frozen importlib._bootstrap_external>\", line 999, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/workspace/scratch/f244fb2c8a90/verified-model-swap/dynamic-sentience-maps/server main.py\", line 19, in <module>\n    import uvicorn\nModuleNotFoundError: No module named 'uvicorn'"
+      "status": "pass",
+      "detail": "PASS FastAPI runtime, local mutation default, remote bearer boundary, and bridge smoke"
     },
     {
       "name": "Deterministic test suite",
       "status": "pass",
-      "detail": "✔ the demonstration graph is bounded and internally connected (0.78224ms)\n✔ every observation supplies complete layouts, stress, and bounded readings (0.623891ms)\n✔ geometry helpers are deterministic and region stress stays bounded (0.382658ms)\n✔ the editorial surface exposes the required instrument and claim limits (5.549402ms)\n✔ DSM renders the independently produced model-swap projection without grading it (1.294363ms)\n✔ the model-swap surface has no verifier, scoring, or unsafe HTML sink (1.510649ms)\n✔ the existing API contract remains declared (0.699565ms)\n✔ release automation executes Python rather than treating hashes as correctness (0.721328ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 71.390173"
+      "detail": "TAP version 13\n# Subtest: the demonstration graph is bounded and internally connected\nok 1 - the demonstration graph is bounded and internally connected\n  ---\n  duration_ms: 2.029989\n  type: 'test'\n  ...\n# Subtest: every observation supplies complete layouts, stress, and bounded readings\nok 2 - every observation supplies complete layouts, stress, and bounded readings\n  ---\n  duration_ms: 0.74123\n  type: 'test'\n  ...\n# Subtest: geometry helpers are deterministic and region stress stays bounded\nok 3 - geometry helpers are deterministic and region stress stays bounded\n  ---\n  duration_ms: 0.407799\n  type: 'test'\n  ...\n# Subtest: the editorial surface exposes the required instrument and claim limits\nok 4 - the editorial surface exposes the required instrument and claim limits\n  ---\n  duration_ms: 7.45586\n  type: 'test'\n  ...\n# Subtest: DSM renders the independently produced model-swap projection without grading it\nok 5 - DSM renders the independently produced model-swap projection without grading it\n  ---\n  duration_ms: 2.580022\n  type: 'test'\n  ...\n# Subtest: the model-swap surface has no verifier, scoring, or unsafe HTML sink\nok 6 - the model-swap surface has no verifier, scoring, or unsafe HTML sink\n  ---\n  duration_ms: 4.025392\n  type: 'test'\n  ...\n# Subtest: the model-swap proof spread renders with DOM-safe text nodes\nok 7 - the model-swap proof spread renders with DOM-safe text nodes\n  ---\n  duration_ms: 2.146821\n  type: 'test'\n  ...\n# Subtest: the existing API contract remains declared\nok 8 - the existing API contract remains declared\n  ---\n  duration_ms: 1.304143\n  type: 'test'\n  ...\n# Subtest: release automation executes Python rather than treating hashes as correctness\nok 9 - release automation executes Python rather than treating hashes as correctness\n  ---\n  duration_ms: 1.698502\n  type: 'test'\n  ...\n# Subtest: the Same Word case route is additive and the default demo remains intact\nok 10 - the Same Word case route is additive and the default demo remains intact\n  ---\n  duration_ms: 2.176995\n  type: 'test'\n  ...\n# Subtest: the semantic fixture renders the required stable nodes and relations\nok 11 - the semantic fixture renders the required stable nodes and relations\n  ---\n  duration_ms: 3.163796\n  type: 'test'\n  ...\n# Subtest: baseline, pressure, and drift expose only the intended graph state\nok 12 - baseline, pressure, and drift expose only the intended graph state\n  ---\n  duration_ms: 1.073668\n  type: 'test'\n  ...\n# Subtest: the semantic case remains anonymized and refuses speaker verdicts\nok 13 - the semantic case remains anonymized and refuses speaker verdicts\n  ---\n  duration_ms: 1.106537\n  type: 'test'\n  ...\n# Subtest: keyboard state traversal, reduced motion, and responsive layouts are explicit\nok 14 - keyboard state traversal, reduced motion, and responsive layouts are explicit\n  ---\n  duration_ms: 1.926762\n  type: 'test'\n  ...\n# Subtest: semantic readings are deterministic demonstration proxies with the expected direction\nok 15 - semantic readings are deterministic demonstration proxies with the expected direction\n  ---\n  duration_ms: 2.082692\n  type: 'test'\n  ...\n1..15\n# tests 15\n# suites 0\n# pass 15\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 135.173767"
     },
     {
       "name": "No remote runtime dependencies",
@@ -49,28 +59,32 @@
     "server main.py": "c9a39cb209800bc24cf1f6088d51e6745bb0f42e846b0e16d946f07ca81a2293",
     "dsm_security.py": "e49aa2eee99c3b474baa796f8c0c8fdac292cf852cad43c38c52d33c138dbcb8",
     "olp_client.py": "4335a97cef35811b0f35ee3bd677949d7ca4129872b6e41407119f1d24a4b4a4",
-    "wire_openline_demo.py": "0e110164868ed8b8a4a6d0bb2a1078601d1cbc18feecca4ea40269640137f300"
+    "wire_openline_demo.py": "5ca3d1d2df835e75372a1f373f09551a272278b42b28f7d76b61f86853005900"
   },
-  "canonical_receipt_sha256": "a6dde686bfb24665542f70517d655d2fd177757228c9cb313a9b0d8f73ca8578",
+  "canonical_receipt_sha256": "0042930ca990ed7cca8a6d3eea6d993e51dec7a161d2675d404ffd4ccdd9d6dd",
   "verified_model_swap_projection_sha256": "d4006ffe1c39c78e883c912c69caef2c0a5715823911e02492ebc2647a2140a0",
   "public_surface_sha256": {
-    "docs/index.html": "619ed5fe20df5506caac6eaf2fb848da3fe28339f10de1443659bb527b86698a",
-    "docs/styles.css": "1e3fbadec5f9e55474d120569373439e7664fd6a9b95a0061ff3c6cbcbc00d6e",
+    "docs/index.html": "cc77df5aa6191c7d4653264f8faf224a356ad158ca0a29b26a84bbfffaa4ce7a",
+    "docs/styles.css": "8330f1e813de63deab6068c7ef458e76829b6ee0ea78aaf75aed8ef652a495f1",
     "docs/demo-data.js": "20ea2b4c83934ea85865b89ef57a6cf29609940b31b9cef580d76540589173f5",
     "docs/instrument.js": "d1466ec9536777ab3b3f95de4d8b02f69c68bb52d5d9edf70d068594b4fb70da",
-    "docs/verified-model-swap.js": "20da519055d0097723fa4133677d45917e1c12e026afb1a6d5007f8df72badb3"
+    "docs/verified-model-swap.js": "20da519055d0097723fa4133677d45917e1c12e026afb1a6d5007f8df72badb3",
+    "docs/semantic-case.js": "7df530858063dc5eb52c2e2a883e825f730ae31a6e1fa98ff978d60e36e68b9e",
+    "docs/demos/same-word-different-rules.json": "12608cc0b5faddac99df01a9e188f8591815526160ee9a6146c7ba4d8d1d491f"
   },
   "verification_source_sha256": {
-    "scripts/release-check.mjs": "318e4d060dc0888c66ca81b1d8cb49a75a3f84abe6d3ceb2f5ab243c76fdcf4d",
-    "tests/instrument.test.mjs": "e4960632f184890ac98b7f1759d177b3a0fe2444502961ff26539491b4d9ab50",
-    "tests/python_integrity.py": "5f2da0c89e6a62302dfbe381463cbe301a9c32bac887a34178f5f54382b416f0",
-    "tests/server_runtime_smoke.py": "edc97f68e35fe2ebfdd167aed71b453482509750ec79fcd30247ba2c3506ea24",
+    "scripts/release-check.mjs": "b2b2713a90abc5537b518c690977805b139837f8d3f6e3c69952c761b935b9ea",
+    "tests/instrument.test.mjs": "b14897e4aef4f3a7bd2c3397905c6472689a6682db1789abe1165f1b7c61773d",
+    "tests/python_integrity.py": "42d17f43d6d5bff55c90b3074eb046e1f665021cef22b70cff73dd5f0852bb47",
+    "tests/server_runtime_smoke.py": "acbe118b85bd93616b229e8af5aa75f13c52f5ef82259aa8b910baecb52feeeb",
     ".github/workflows/test.yml": "4438f72a99276df077b818f33d939e03b0669da46d1ee60ddab9179a01b6889d",
     "requirements.txt": "6e9bcc483256c1b44c700962ee6c352d99dadc836f55cf5198fd1c53bb5d86f6"
   },
   "claim_boundary": [
     "The graph and readings are deterministic demonstration proxies.",
     "DSM renders a producer-supplied model-swap projection and does not grade the lanes.",
+    "DSM deterministically renders an anonymized semantic-collision fixture across baseline, pressure, and drift states.",
+    "DSM does not determine whether a person, institution, or statement is racist.",
     "Fixture model identifiers do not attest execution by a commercial provider.",
     "This verification does not establish scientific validity or a private kernel implementation.",
     "Evidence and receiver policy must be checked in addition to signatures or hashes."

@@ -24,6 +24,7 @@
   <title>Dynamic Sentience Maps — A Public Instrument</title>
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./instrument.js"></script>
+  <script type="module" src="./semantic-case.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#instrument">Skip to the instrument</a>
@@ -43,6 +44,84 @@
   </header>
 
   <main id="top">
+
+    <section id="semantic-collision-case" class="semantic-case" aria-labelledby="case-title" hidden>
+      <div class="case-load-error" role="alert"></div>
+      <div class="case-plate">
+        <div class="case-plate-meta"><span>DSM CASE STUDY 01</span><a href="./">Return to default instrument</a></div>
+        <p class="kicker">SEMANTIC COLLISION / DEFINITION DRIFT</p>
+        <h1 id="case-title">Same Word, Different Rules</h1>
+        <p id="case-deck" class="case-deck"></p>
+        <div class="case-plate-bottom">
+          <div class="case-status-block"><span>FINAL STATUS</span><strong id="case-final-status"></strong><p id="case-final-explanation"></p></div>
+          <button id="trace-disagreement" class="action-primary case-trace-action" type="button">Trace the disagreement <span aria-hidden="true">↓</span></button>
+        </div>
+      </div>
+
+      <p id="case-source-disclosure" class="case-disclosure"></p>
+
+      <section class="case-visible-claims" aria-labelledby="case-visible-title">
+        <div class="section-rule"><span>VISIBLE EXCHANGE</span><span>ANONYMIZED · LIGHTLY PARAPHRASED</span></div>
+        <h2 id="case-visible-title">The words on the surface</h2>
+        <ol id="case-exchange-list" class="case-exchange-list"></ol>
+      </section>
+
+      <section id="case-trace" class="case-trace" aria-labelledby="case-trace-title">
+        <div class="section-rule dark-rule"><span>TRACE THE DISAGREEMENT</span><span>DEMONSTRATION PROXIES · NOT A VERDICT</span></div>
+        <div class="case-trace-heading">
+          <h2 id="case-trace-title">The missing rule is the story.</h2>
+          <p id="case-state-caption"></p>
+        </div>
+        <div class="case-state-bar">
+          <strong id="case-state-label">01 / Baseline</strong>
+          <div class="case-state-controls" role="group" aria-label="Semantic collision observation state">
+            <button class="is-active" type="button" data-case-state="baseline" aria-pressed="true">01&nbsp; Baseline</button>
+            <button type="button" data-case-state="pressure" aria-pressed="false" tabindex="-1">02&nbsp; Pressure</button>
+            <button type="button" data-case-state="drift" aria-pressed="false" tabindex="-1">03&nbsp; Drift</button>
+          </div>
+        </div>
+        <div class="case-readings" aria-label="Current demonstration-proxy readings">
+          <div><span>κ</span><strong id="case-reading-kappa">0.26</strong><small>STRESS · DEMO PROXY</small><i id="case-line-kappa" style="--reading:26%"></i></div>
+          <div><span>ε</span><strong id="case-reading-epsilon">0.12</strong><small>ENTROPY LEAK · DEMO PROXY</small><i id="case-line-epsilon" style="--reading:12%"></i></div>
+          <div><span>I<sub>c</sub></span><strong id="case-reading-capacity">0.82</strong><small>CAPACITY · DEMO PROXY</small><i id="case-line-capacity" style="--reading:82%"></i></div>
+          <div><span>Φ*</span><strong id="case-reading-phi">0.84</strong><small>COHERENCE · DEMO PROXY</small><i id="case-line-phi" style="--reading:84%"></i></div>
+        </div>
+        <aside class="case-hinge" aria-labelledby="case-hinge-title">
+          <span>PRIMARY HINGE</span>
+          <h3 id="case-primary-hinge"></h3>
+          <p id="case-primary-question"></p>
+          <ol id="case-criteria"></ol>
+        </aside>
+        <div class="case-workbench">
+          <figure class="case-map-figure">
+            <svg id="semantic-map" role="group" aria-label="Interactive semantic collision map. Use Tab to reach a node and Enter to inspect it."></svg>
+            <figcaption>Every relationship comes from the disclosed fixture. Contradiction marks incompatible rules; it does not declare a winner.</figcaption>
+          </figure>
+          <aside class="case-selection-panel" aria-labelledby="case-selection-title">
+            <span id="case-selection-type">HINGE</span>
+            <h3 id="case-selection-title"></h3>
+            <p id="case-selection-meaning"></p>
+            <a href="./demos/same-word-different-rules.json">Open fixture source ↗</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="case-evidence-view" aria-labelledby="case-evidence-title">
+        <div class="section-rule"><span>EVIDENCE VIEW</span><span>NODES · RELATIONS · QUALIFICATIONS</span></div>
+        <div class="case-evidence-heading"><h2 id="case-evidence-title">What the map actually says</h2><p>The graph separates visible claims from the assumptions that make them work. The hinge remains unresolved by design.</p></div>
+        <div class="case-evidence-columns">
+          <div><h3>Node meanings</h3><ol id="case-node-evidence"></ol></div>
+          <div><h3>Relations</h3><ol id="case-relation-evidence"></ol></div>
+        </div>
+      </section>
+
+      <section class="case-boundary-note" aria-labelledby="case-boundary-title">
+        <span>EXACT PUBLIC CLAIM BOUNDARY</span>
+        <h2 id="case-boundary-title">Map the structure. Stop before the verdict.</h2>
+        <p id="case-claim-boundary"></p>
+        <p id="case-prohibited-claim"></p>
+      </section>
+    </section>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-index" aria-hidden="true">VOL. I&nbsp;&nbsp; / &nbsp;&nbsp;2026</div>
       <h1 id="hero-title"><span>DYNAMIC</span><span>SENTIENCE</span><span>MAPS</span></h1>
@@ -79,6 +158,13 @@
         <h2 id="instrument-title">A system reveals itself at the edges.</h2>
         <p>This specimen follows one supported plan as retries increase, context tightens, and a stale memory re-enters the graph. Move through the three observations. Select any node or named region to inspect what holds it there.</p>
       </div>
+
+
+      <aside class="case-entry-card" aria-labelledby="case-entry-title">
+        <span>PUBLIC CASE STUDY 01</span>
+        <div><h3 id="case-entry-title">Same Word, Different Rules</h3><p>See where a familiar argument stops sharing a definition and starts judging the person.</p></div>
+        <a href="./?case=same-word-different-rules">Open the semantic-collision case <span aria-hidden="true">→</span></a>
+      </aside>
 
       <div class="state-observer" aria-label="Choose an observation state">
         <div class="state-time">

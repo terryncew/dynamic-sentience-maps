@@ -42,6 +42,15 @@ The API and generated OpenAPI documentation are available at `http://localhost:8
 
 The server binds to `127.0.0.1` by default. Loopback peers may use state-changing routes without a token. To expose mutations beyond the local machine, set a strong `DSM_MUTATION_TOKEN`; remote callers must send it as `Authorization: Bearer ...`. `DSM_HOST` and comma-separated `DSM_ALLOWED_ORIGINS` are explicit deployment opt-ins. Wildcard credential origins are rejected, and the bundled server ignores forwarded client headers.
 
+
+## Same Word, Different Rules
+
+This case study shows how DSM separates visible claims, hidden assumptions, contradictions, and definition drift. It maps the structure of a disagreement without deciding which participant is morally or politically correct.
+
+Open the public case study: https://terryncew.github.io/dynamic-sentience-maps/?case=same-word-different-rules
+
+The fixture is anonymized and lightly paraphrased. DSM renders baseline, pressure, and drift as deterministic demonstration proxies; it does not determine whether a person, institution, or statement is racist.
+
 ## Verified Model Swap surface
 
 `docs/verified_model_swap.latest.json` is produced by OpenLine Receipt Gate's controlled three-lane fixture. It declares which commitments survived, which negative-history decisions an ordinary summary lost, what returned from the authenticated archive, and the receiver Gate disposition.
